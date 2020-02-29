@@ -1,0 +1,154 @@
+h1
+{
+    margin:0;
+    padding:0;
+}
+
+h1 em
+{
+    font-style: normal;
+    color: gold;
+}
+.NoSpace {
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.NoSpace em
+{
+    text-decoration: underline;
+    text-decoration-color: gold;
+    font-style: normal;
+}
+
+.Underline
+{
+    border-bottom: 1.2px solid gold;
+}
+
+
+.Personal
+{
+    display: flex;
+    flex-direction: column;
+    background-color: gold;
+}
+
+.Personal img
+{
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ContactItem
+{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+
+.Category
+{
+    color: gold;
+    background-color: black;
+    padding: 5px;
+    text-align: center;
+}
+
+.Professional
+{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.Professional_Category
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.Professional_Category p
+{
+    margin: 0;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.Professional_Category i
+{
+    color: gold;
+}
+
+.Formation_Item
+{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.Formation_Item p
+{
+    margin-top: 15px;
+    padding-right: 30px;
+}
+
+.Formation_Item ul
+{
+    flex: 500%;
+    padding-left: 0;
+    padding-right: 30px;
+    list-style-type: disc;
+    color: gold;
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 140%;
+}
+
+ul li span
+{
+    font-size: initial;
+    color: black;
+}
+
+.Recommandation_Item
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.Recommandation_Item p
+{
+    padding-right: 15px;
+}
+
+
+.Icon
+{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Icon i
+{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#conteneur
+{
+    font-family: Arial, serif;
+    display: flex;
+    flex-direction: row;
+}
+
