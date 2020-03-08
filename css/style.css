@@ -1,14 +1,38 @@
+/* -------------------------------------------- */
+/*****BODY*****/
+
+#conteneur
+{
+    font-family: Arial, serif;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+/* -------------------------------------------- */
+/* LINE SEPARATOR */
+
+.Line_Separator
+{
+    border-bottom: 1.2px solid #FECA07;
+}
+
+/* -------------------------------------------- */
+/*****HEADER*****/
+
 h1
 {
     margin:0;
     padding:0;
+    font-size: 250%;
 }
 
 h1 em
 {
     font-style: normal;
-    color: gold;
+    color: #FECA07;
 }
+
 .NoSpace {
     margin: 0;
     padding-top: 0;
@@ -19,29 +43,46 @@ h1 em
 .NoSpace em
 {
     text-decoration: underline;
-    text-decoration-color: gold;
+    text-decoration-color: #FECA07;
     font-style: normal;
 }
 
-.Underline
-{
-    border-bottom: 1.2px solid gold;
-}
 
+
+/* -------------------------------------------- */
+/*****PERSONAL SECTION*****/
 
 .Personal
 {
     display: flex;
     flex-direction: column;
-    background-color: gold;
+    background-color: #FECA07;
 }
+
+/* -------------------------------------------- */
+/* PERSONAL CATEGORY HEADER */
+
+.Personal_Category
+{
+    color: #FECA07;
+    background-color: #404040;
+    padding: 5px;
+    text-align: center;
+}
+
+/* -------------------------------------------- */
+/* PHOTO */
 
 .Personal img
 {
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 50%;
 }
+
+/* -------------------------------------------- */
+/* CONTACTS */
 
 .ContactItem
 {
@@ -49,15 +90,37 @@ h1 em
     margin-right: 20px;
 }
 
+/* -------------------------------------------- */
+/* ABOUT ME */
 
-
-.Category
+.About_Me
 {
-    color: gold;
-    background-color: black;
-    padding: 5px;
-    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-grow: 1;
 }
+
+/* -------------------------------------------- */
+/* HOBBIES */
+
+.Hobbies_Icons
+{
+    display: flex;
+    flex-direction: row;
+    margin: 15px auto 25px;
+
+}
+
+.Hobbies_Icons i
+{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+
+/* -------------------------------------------- */
+/*****PRO SECTION*****/
 
 .Professional
 {
@@ -66,6 +129,8 @@ h1 em
     flex-direction: column;
 }
 
+/* -------------------------------------------- */
+/* PRO CATEGORY HEADER */
 
 .Professional_Category
 {
@@ -80,43 +145,64 @@ h1 em
     margin: 0;
     padding-left: 10px;
     font-weight: bold;
+    font-size: 120%;
 }
 
 .Professional_Category i
 {
-    color: gold;
+    color: #FECA07;
+    padding-right: 10px;
 }
 
-.Formation_Item
+/* -------------------------------------------- */
+/* PRO ITEMS */
+
+.Pro_Item
 {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
 }
 
-.Formation_Item p
+.Pro_Item p
 {
     margin-top: 15px;
     padding-right: 30px;
 }
 
-.Formation_Item ul
+.Pro_Item ul
 {
     flex: 500%;
-    padding-left: 0;
+    padding-left: 25px;
     padding-right: 30px;
     list-style-type: disc;
-    color: gold;
+    color: #FECA07;
     margin-bottom: 0;
     margin-top: 10px;
     font-size: 140%;
+    flex-direction: row;
+    margin-left: 0;
 }
 
 ul li span
 {
     font-size: initial;
-    color: black;
+    color: #404040;
 }
+
+.NoBullet
+{
+    list-style-type: none;
+}
+
+.NoBullet i
+{
+    color: #FECA07;
+    padding-top: 8px;
+}
+
+/* -------------------------------------------- */
+/* RECOMMENDATIONS */
 
 .Recommandation_Item
 {
@@ -126,29 +212,29 @@ ul li span
 
 .Recommandation_Item p
 {
-    padding-right: 15px;
+    padding-right: 100px;
 }
 
 
-.Icon
+/* -------------------------------------------- */
+/*****RESPONSIVE*****/
+
+
+/* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
+@media screen and (max-width: 1280px)
 {
-    display: flex;
-    flex-direction: row;
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
+
 }
 
-.Icon i
-{
-    padding-left: 5px;
-    padding-right: 5px;
-}
+    /* Sur tous types d'écran, quand la largeur de la fenêtre est comprise entre 1024px et 1280px */
+    @media all and (min-width: 1024px) and (max-width: 1280px)
+    {
 
-#conteneur
-{
-    font-family: Arial, serif;
-    display: flex;
-    flex-direction: row;
-}
+    }
 
+
+            /* Sur tous types d'écrans orientés verticalement */
+            @media all and (orientation: portrait)
+            {
+
+            }
