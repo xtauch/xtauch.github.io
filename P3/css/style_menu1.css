@@ -30,6 +30,15 @@
   margin: 0;
   width: 500px; }
 
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .title img {
+    width: 48px;
+    height: 48px;
+    margin: auto auto 0; }
+
 #main_header {
   background: #569C87;
   color: #E8C44E; }
@@ -43,7 +52,9 @@
   background: #FCDFDB;
   font-family: Mistral, serif; }
   #menu h2 {
-    text-align: center; }
+    text-align: center;
+    padding-bottom: 15px;
+    margin-top: 0; }
   #menu .menu_header {
     text-align: center;
     font-size: 17px;
@@ -77,12 +88,22 @@
     list-style-type: none;
     font-size: 16px;
     padding: 0; }
+    #menu ul li {
+      margin: 10px; }
+  #menu footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    #menu footer img {
+      width: 48px;
+      height: 48px;
+      margin-right: 4px; }
 
 #main_footer {
   background: #569C87;
   color: #E8C44E;
+  position: sticky;
   bottom: 0;
-  width: available;
   padding: 10px; }
   #main_footer .footer_container {
     display: flex;

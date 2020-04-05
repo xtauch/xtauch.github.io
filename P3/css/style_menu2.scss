@@ -3,7 +3,7 @@ $text_color: #E8C44E;
 $menu2_bg_color: #FFF5FE;
 $menu2_text_color1: #C67412;
 $menu2_text_color2: #A76A9B;
-$menu2_text_color3: #B7A1E5;
+$menu2_text_color3: #686bd8;
 
 @mixin style_01 {
   background: $main_color;
@@ -80,6 +80,7 @@ $menu2_text_color3: #B7A1E5;
     background: linear-gradient(to right, $menu2_text_color1 0%, $menu2_text_color2 50%, $menu2_text_color3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding-bottom: 15px;
   }
   .menu_header1 {
     @include style_menu ($menu2_text_color1);
@@ -112,13 +113,16 @@ $menu2_text_color3: #B7A1E5;
     list-style-type: none;
     font-size: 15px;
     padding: 0;
+    li{
+      margin: 10px;
+    }
   }
 }
 
 #main_footer {
   @include style_01;
+  position: sticky;
   bottom: 0;
-  width: available;
   padding:10px;
   .footer_container{
     display: flex;

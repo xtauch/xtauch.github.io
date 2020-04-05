@@ -23,6 +23,40 @@
   100% {
     transform: translate(1px, -2px) rotate(-1deg); } }
 
+@keyframes jump {
+  0% {
+    bottom: 0; }
+  20% {
+    bottom: 5px; }
+  40% {
+    bottom: 0; } }
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #E8C44E;
+  display: inline-block;
+  border-radius: 50%;
+  right: 0;
+  bottom: 0;
+  margin: 0 2.5px;
+  position: relative; }
+
+.dots-cont .dot-1 {
+  animation: jump 1s infinite;
+  -webkit-animation-delay: 100ms;
+  animation-delay: 100ms; }
+
+.dots-cont .dot-2 {
+  animation: jump 1s infinite;
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms; }
+
+.dots-cont .dot-3 {
+  animation: jump 1s infinite;
+  -webkit-animation-delay: 300ms;
+  animation-delay: 300ms; }
+
 #container {
   font-family: Arial, sans-serif;
   display: flex;
@@ -65,6 +99,9 @@
       #menu__row1 .menu1:hover h2, #menu__row1 .menu1:hover h3, #menu__row2 .menu1:hover h2, #menu__row2 .menu1:hover h3 {
         transform: scale(1.2);
         transition: all ease-in-out 0.3s; }
+    #menu__row1 .menu1 img, #menu__row2 .menu1 img {
+      width: 48px;
+      margin: 0 auto; }
   #menu__row1 .menu2, #menu__row2 .menu2 {
     width: 200px;
     height: 250px;
@@ -85,6 +122,9 @@
       #menu__row1 .menu2:hover h2, #menu__row1 .menu2:hover h3, #menu__row2 .menu2:hover h2, #menu__row2 .menu2:hover h3 {
         transform: scale(1.2);
         transition: all ease-in-out 0.3s; }
+    #menu__row1 .menu2 img, #menu__row2 .menu2 img {
+      width: 48px;
+      margin: 0 auto; }
   #menu__row1 .menu3, #menu__row2 .menu3 {
     width: 200px;
     height: 250px;
@@ -105,6 +145,9 @@
       #menu__row1 .menu3:hover h2, #menu__row1 .menu3:hover h3, #menu__row2 .menu3:hover h2, #menu__row2 .menu3:hover h3 {
         transform: scale(1.2);
         transition: all ease-in-out 0.3s; }
+    #menu__row1 .menu3 img, #menu__row2 .menu3 img {
+      width: 48px;
+      margin: 0 auto; }
   #menu__row1 .menu4, #menu__row2 .menu4 {
     width: 200px;
     height: 250px;
@@ -125,6 +168,9 @@
       #menu__row1 .menu4:hover h2, #menu__row1 .menu4:hover h3, #menu__row2 .menu4:hover h2, #menu__row2 .menu4:hover h3 {
         transform: scale(1.2);
         transition: all ease-in-out 0.3s; }
+    #menu__row1 .menu4 img, #menu__row2 .menu4 img {
+      width: 48px;
+      margin: 0 auto; }
 
 #menu button {
   background: #569C87;
@@ -139,8 +185,8 @@
 #main_footer {
   background: #569C87;
   color: #E8C44E;
+  position: sticky;
   bottom: 0;
-  width: available;
   padding: 10px; }
   #main_footer .footer_container {
     display: flex;

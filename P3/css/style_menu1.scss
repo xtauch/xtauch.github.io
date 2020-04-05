@@ -61,6 +61,17 @@ $menu1_text_color: #3D1319;
   width: 500px;
 }
 
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  img {
+    width: 48px;
+    height: 48px;
+    margin: auto auto 0;
+  }
+}
+
 #main_header {
   @include style_01;
   h1 {
@@ -76,6 +87,8 @@ $menu1_text_color: #3D1319;
   font-family: Mistral, serif;
   h2 {
     text-align: center;
+    padding-bottom: 15px;
+    margin-top: 0;
   }
   .menu_header {
     @include style_menu ($menu1_text_color);
@@ -89,14 +102,27 @@ $menu1_text_color: #3D1319;
     list-style-type: none;
     font-size: 16px;
     padding: 0;
+    li{
+      margin: 10px;
+    }
+  }
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    img {
+      width: 48px;
+      height: 48px;
+      margin-right: 4px;
+    }
   }
 }
 
 
 #main_footer {
   @include style_01;
+  position: sticky;
   bottom: 0;
-  width: available;
   padding:10px;
   .footer_container{
     display: flex;

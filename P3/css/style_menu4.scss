@@ -83,6 +83,7 @@ $menu4_text_color3: #BEFF7F;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 50px;
+    padding-bottom: 15px;
   }
   .menu_header {
     @include style_menu ($menu4_text_color1);
@@ -96,14 +97,16 @@ $menu4_text_color3: #BEFF7F;
     list-style-type: none;
     font-size: 16px;
     padding: 0;
+    li{
+      margin: 10px;
+    }
   }
 }
 
-
 #main_footer {
   @include style_01;
+  position: sticky;
   bottom: 0;
-  width: available;
   padding:10px;
   .footer_container{
     display: flex;

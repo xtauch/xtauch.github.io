@@ -44,9 +44,10 @@
   font-family: "Bell MT", serif; }
   #menu h2 {
     text-align: center;
-    background: linear-gradient(to right, #C67412 0%, #A76A9B 50%, #B7A1E5 100%);
+    background: linear-gradient(to right, #C67412 0%, #A76A9B 50%, #686bd8 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; }
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 15px; }
   #menu .menu_header1 {
     text-align: center;
     font-size: 17px;
@@ -100,9 +101,9 @@
   #menu .menu_header3 {
     text-align: center;
     font-size: 17px;
-    border-bottom: 3px solid #B7A1E5;
+    border-bottom: 3px solid #686bd8;
     line-height: 0.1em;
-    color: #B7A1E5; }
+    color: #686bd8; }
     #menu .menu_header3 span {
       background: #FFF5FE;
       padding: 0 20px;
@@ -114,7 +115,7 @@
         height: 2px;
         bottom: 0;
         left: 0;
-        background-color: #B7A1E5;
+        background-color: #686bd8;
         visibility: hidden;
         transition: all 0.3s ease-in-out; }
     #menu .menu_header3 span:hover:before {
@@ -136,17 +137,19 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color: #B7A1E5; }
+    color: #686bd8; }
   #menu ul {
     list-style-type: none;
     font-size: 15px;
     padding: 0; }
+    #menu ul li {
+      margin: 10px; }
 
 #main_footer {
   background: #569C87;
   color: #E8C44E;
+  position: sticky;
   bottom: 0;
-  width: available;
   padding: 10px; }
   #main_footer .footer_container {
     display: flex;

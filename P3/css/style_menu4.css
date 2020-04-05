@@ -48,7 +48,8 @@
     background: linear-gradient(to right, #45993E 0%, #BEFF7F 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 50px; }
+    font-size: 50px;
+    padding-bottom: 15px; }
   #menu .menu_header {
     text-align: center;
     font-size: 18px;
@@ -82,12 +83,14 @@
     list-style-type: none;
     font-size: 16px;
     padding: 0; }
+    #menu ul li {
+      margin: 10px; }
 
 #main_footer {
   background: #569C87;
   color: #E8C44E;
+  position: sticky;
   bottom: 0;
-  width: available;
   padding: 10px; }
   #main_footer .footer_container {
     display: flex;

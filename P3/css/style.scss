@@ -1,5 +1,6 @@
 $main_color: #569C87;
 $text_color: #E8C44E;
+$width_desktop: 500px;
 $menu1_bg_color: #FCDFDB;
 $menu2_bg_color: #FFF5FE;
 $menu3_bg_color: #F9F9F9;
@@ -38,6 +39,10 @@ $menu4_text_color: #bde8bb;
       transition: all ease-in-out 0.3s;
     }
   }
+  img{
+    width: 48px;
+    margin: 0 auto;
+  }
 }
 
 @keyframes shake {
@@ -54,12 +59,48 @@ $menu4_text_color: #bde8bb;
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
+@keyframes jump {
+  0%   {bottom: 0;}
+  20%  {bottom: 5px;}
+  40%  {bottom: 0;}
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: $text_color;
+  display: inline-block;
+  border-radius: 50%;
+  right: 0;
+  bottom: 0;
+  margin: 0 2.5px;
+  position: relative;
+}
+
+.dots-cont .dot-1{
+  animation: jump 1s infinite;
+  -webkit-animation-delay: 100ms;
+  animation-delay: 100ms;
+}
+
+.dots-cont .dot-2{
+  animation: jump 1s infinite;
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms;
+}
+
+.dots-cont .dot-3{
+  animation: jump 1s infinite;
+  -webkit-animation-delay: 300ms;
+  animation-delay: 300ms;
+}
+
 #container {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   margin: 0;
-  width: 500px;
+  width: $width_desktop;
 }
 
 #main_header {
@@ -106,8 +147,8 @@ $menu4_text_color: #bde8bb;
 
 #main_footer {
   @include style_01;
+  position: sticky;
   bottom: 0;
-  width: available;
   padding:10px;
   .footer_container{
     display: flex;
@@ -168,3 +209,4 @@ $menu4_text_color: #bde8bb;
     margin: 0 auto;
   }
 }
+
