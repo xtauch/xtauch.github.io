@@ -17,8 +17,8 @@ $menu4_text_color: #bde8bb;
 
 @mixin card_style ($bg_color, $font_color, $font_family, $font_size) {
 
-  width: 200px;
-  height: 250px;
+  width: 500px;
+  height: 650px;
   background: $bg_color;
   color: $font_color;
   font-family: $font_family;
@@ -100,7 +100,7 @@ $menu4_text_color: #bde8bb;
   display: flex;
   flex-direction: column;
   margin: 0;
-  width: $width_desktop;
+  width: auto;
 }
 
 #main_header {
@@ -117,6 +117,7 @@ $menu4_text_color: #bde8bb;
     flex-direction: row;
     margin-left: 20px;
     margin-right: 20px;
+    justify-content: center;
     a {
       text-decoration: none;
       margin: 15px;

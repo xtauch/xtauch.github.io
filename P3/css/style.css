@@ -62,7 +62,7 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  width: 500px; }
+  width: auto; }
 
 #main_header {
   background: #569C87;
@@ -75,13 +75,14 @@
   display: flex;
   flex-direction: row;
   margin-left: 20px;
-  margin-right: 20px; }
+  margin-right: 20px;
+  justify-content: center; }
   #menu__row1 a, #menu__row2 a {
     text-decoration: none;
     margin: 15px; }
   #menu__row1 .menu1, #menu__row2 .menu1 {
-    width: 200px;
-    height: 250px;
+    width: 500px;
+    height: 650px;
     background: #FCDFDB;
     color: #493030;
     font-family: Mistral, serif;
@@ -103,8 +104,8 @@
       width: 48px;
       margin: 0 auto; }
   #menu__row1 .menu2, #menu__row2 .menu2 {
-    width: 200px;
-    height: 250px;
+    width: 500px;
+    height: 650px;
     background: #FFF5FE;
     color: #e0aabc;
     font-family: "Bell MT", serif;
@@ -126,8 +127,8 @@
       width: 48px;
       margin: 0 auto; }
   #menu__row1 .menu3, #menu__row2 .menu3 {
-    width: 200px;
-    height: 250px;
+    width: 500px;
+    height: 650px;
     background: #F9F9F9;
     color: #bfc7ff;
     font-family: "French Script MT", serif;
@@ -149,8 +150,8 @@
       width: 48px;
       margin: 0 auto; }
   #menu__row1 .menu4, #menu__row2 .menu4 {
-    width: 200px;
-    height: 250px;
+    width: 500px;
+    height: 650px;
     background: #FDFFFD;
     color: #bde8bb;
     font-family: "Freestyle Script", serif;
