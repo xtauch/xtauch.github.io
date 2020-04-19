@@ -17,8 +17,8 @@ $menu4_text_color: #bde8bb;
 
 @mixin card_style ($bg_color, $font_color, $font_family, $font_size) {
 
-  width: 500px;
-  height: 650px;
+  width: 225px;
+  height: 300px;
   background: $bg_color;
   color: $font_color;
   font-family: $font_family;
@@ -201,6 +201,7 @@ $menu4_text_color: #bde8bb;
   }
 }
 
+
 /* -------------------------------------------- */
 /*****HANDLE DESKTOP FULLSCREEN*****/
 
@@ -211,3 +212,26 @@ $menu4_text_color: #bde8bb;
   }
 }
 
+
+
+@media (max-width: 375px) {
+
+  #menu {
+    &__row1, &__row2 {
+      flex-direction: column;
+      width: 300px;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+      a {
+        margin-right: 0;
+        margin-left: 0;
+      }
+      .menu1, .menu2, .menu3, .menu4 {
+        width: 300px;
+        height: 450px;
+      }
+    }
+  }
+
+}
