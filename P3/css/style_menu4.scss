@@ -5,6 +5,16 @@ $menu4_text_color1: #020202;
 $menu4_text_color2: #45993E;
 $menu4_text_color3: #BEFF7F;
 
+@font-face {
+  font-family: "Freestyle Script1";
+  src: url("../font/FreestyleScriptPlain/FreestyleScriptPlain.svg") format("svg"),
+  url("../font/FreestyleScriptPlain/FreestyleScriptPlain.woff") format("woff"),
+  url("../font/FreestyleScriptPlain/FreestyleScriptPlain.ttf") format("ttf"),
+  url("../font/FreestyleScriptPlain/FreestyleScriptPlain.woff2") format("woff2"),
+  url("../font/FreestyleScriptPlain/FreestyleScriptPlain.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
 @mixin style_01 {
   background: $main_color;
   color: $text_color;
@@ -80,7 +90,7 @@ $menu4_text_color3: #BEFF7F;
   margin: auto 20px;
   padding: 30px;
   background: $menu4_bg_color;
-  font-family: "Freestyle Script", serif;
+  font-family: "Freestyle Script1", serif;
   color: $menu4_text_color1;
 
   h2 {

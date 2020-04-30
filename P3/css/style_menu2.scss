@@ -5,6 +5,16 @@ $menu2_text_color1: #C67412;
 $menu2_text_color2: #A76A9B;
 $menu2_text_color3: #686bd8;
 
+@font-face {
+  font-family: "Bell MT1";
+  src: url("../font/BellMT/BellMT.svg") format("svg"),
+  url("../font/BellMT/BellMT.woff") format("woff"),
+  url("../font/BellMT/BellMT.ttf") format("ttf"),
+  url("../font/BellMT/BellMT.woff2") format("woff2"),
+  url("../font/BellMT/BellMT.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
 @mixin style_01 {
   background: $main_color;
   color: $text_color;
@@ -80,7 +90,7 @@ $menu2_text_color3: #686bd8;
   margin: auto 20px;
   padding: 30px;
   background: $menu2_bg_color;
-  font-family: "Bell MT", serif;
+  font-family: "Bell MT1", serif;
   h2 {
     text-align: center;
     background: linear-gradient(to right, $menu2_text_color1 0%, $menu2_text_color2 50%, $menu2_text_color3 100%);

@@ -6,6 +6,16 @@ $menu3_text_color2: #0228DD;
 $menu3_text_color3: #0670F3;
 $menu3_text_color4: #229DF9;
 
+@font-face {
+  font-family: "French Script MT1";
+  src: url("../font/FrenchScriptMT/FrenchScriptMT.svg") format("svg"),
+  url("../font/FrenchScriptMT/FrenchScriptMT.woff") format("woff"),
+  url("../font/FrenchScriptMT/FrenchScriptMT.ttf") format("ttf"),
+  url("../font/FrenchScriptMT/FrenchScriptMT.woff2") format("woff2"),
+  url("../font/FrenchScriptMT/FrenchScriptMT.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
 @mixin style_01 {
   background: $main_color;
   color: $text_color;
@@ -80,7 +90,7 @@ $menu3_text_color4: #229DF9;
   margin: auto 20px;;
   padding: 30px;
   background: $menu3_bg_color;
-  font-family: "French Script MT", serif;
+  font-family: "French Script MT1", serif;
   color: $menu3_text_color1;
   h2 {
     text-align: center;

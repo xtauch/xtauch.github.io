@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "French Script MT1";
+  src: url("../font/FrenchScriptMT/FrenchScriptMT.svg") format("svg"), url("../font/FrenchScriptMT/FrenchScriptMT.woff") format("woff"), url("../font/FrenchScriptMT/FrenchScriptMT.ttf") format("ttf"), url("../font/FrenchScriptMT/FrenchScriptMT.woff2") format("woff2"), url("../font/FrenchScriptMT/FrenchScriptMT.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg); }
@@ -46,7 +52,7 @@
   margin: auto 20px;
   padding: 30px;
   background: #F9F9F9;
-  font-family: "French Script MT", serif;
+  font-family: "French Script MT1", serif;
   color: #020202; }
   #menu h2 {
     text-align: center;

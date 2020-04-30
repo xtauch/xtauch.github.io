@@ -3,6 +3,15 @@ $text_color: #E8C44E;
 $menu1_bg_color: #FCDFDB;
 $menu1_text_color: #3D1319;
 
+@font-face {
+  font-family: "Mistral1";
+  src: url("../font/Mistral/Mistral.svg") format("svg"),
+  url("../font/Mistral/Mistral.woff") format("woff"),
+  url("../font/Mistral/Mistral.ttf") format("ttf"),
+  url("../font/Mistral/Mistral.woff2") format("woff2"),
+  url("../font/Mistral/Mistral.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
 
 @mixin style_01 {
   background: $main_color;
@@ -90,7 +99,7 @@ $menu1_text_color: #3D1319;
   margin: auto 20px;
   padding: 30px;
   background: $menu1_bg_color;
-  font-family: Mistral, serif;
+  font-family: "Mistral1", serif;
   h2 {
     text-align: center;
     padding-bottom: 15px;

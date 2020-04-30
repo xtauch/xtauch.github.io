@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Freestyle Script1";
+  src: url("../font/FreestyleScriptPlain/FreestyleScriptPlain.svg") format("svg"), url("../font/FreestyleScriptPlain/FreestyleScriptPlain.woff") format("woff"), url("../font/FreestyleScriptPlain/FreestyleScriptPlain.ttf") format("ttf"), url("../font/FreestyleScriptPlain/FreestyleScriptPlain.woff2") format("woff2"), url("../font/FreestyleScriptPlain/FreestyleScriptPlain.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg); }
@@ -46,7 +52,7 @@
   margin: auto 20px;
   padding: 30px;
   background: #FDFFFD;
-  font-family: "Freestyle Script", serif;
+  font-family: "Freestyle Script1", serif;
   color: #020202; }
   #menu h2 {
     text-align: center;

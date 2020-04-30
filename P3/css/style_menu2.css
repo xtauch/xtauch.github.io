@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Bell MT1";
+  src: url("../font/BellMT/BellMT.svg") format("svg"), url("../font/BellMT/BellMT.woff") format("woff"), url("../font/BellMT/BellMT.ttf") format("ttf"), url("../font/BellMT/BellMT.woff2") format("woff2"), url("../font/BellMT/BellMT.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg); }
@@ -46,7 +52,7 @@
   margin: auto 20px;
   padding: 30px;
   background: #FFF5FE;
-  font-family: "Bell MT", serif; }
+  font-family: "Bell MT1", serif; }
   #menu h2 {
     text-align: center;
     background: linear-gradient(to right, #C67412 0%, #A76A9B 50%, #686bd8 100%);

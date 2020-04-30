@@ -18,6 +18,46 @@ $menu4_text_color: #bde8bb;
 $menu4_text_color2: #45993E;
 $menu4_text_color3: #BEFF7F;
 
+@font-face {
+  font-family: "Mistral1";
+  src: url("../font/Mistral/Mistral.svg") format("svg"),
+       url("../font/Mistral/Mistral.woff") format("woff"),
+       url("../font/Mistral/Mistral.ttf") format("ttf"),
+       url("../font/Mistral/Mistral.woff2") format("woff2"),
+       url("../font/Mistral/Mistral.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Bell MT1";
+  src: url("../font/BellMT/BellMT.svg") format("svg"),
+       url("../font/BellMT/BellMT.woff") format("woff"),
+       url("../font/BellMT/BellMT.ttf") format("ttf"),
+       url("../font/BellMT/BellMT.woff2") format("woff2"),
+       url("../font/BellMT/BellMT.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "French Script MT1";
+  src: url("../font/FrenchScriptMT/FrenchScriptMT.svg") format("svg"),
+       url("../font/FrenchScriptMT/FrenchScriptMT.woff") format("woff"),
+       url("../font/FrenchScriptMT/FrenchScriptMT.ttf") format("ttf"),
+       url("../font/FrenchScriptMT/FrenchScriptMT.woff2") format("woff2"),
+       url("../font/FrenchScriptMT/FrenchScriptMT.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Freestyle Script1";
+  src: url("../font/FreestyleScriptPlain/FreestyleScriptPlain.svg") format("svg"),
+       url("../font/FreestyleScriptPlain/FreestyleScriptPlain.woff") format("woff"),
+       url("../font/FreestyleScriptPlain/FreestyleScriptPlain.ttf") format("ttf"),
+       url("../font/FreestyleScriptPlain/FreestyleScriptPlain.woff2") format("woff2"),
+       url("../font/FreestyleScriptPlain/FreestyleScriptPlain.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
 @mixin style_01 {
   background: $main_color;
   color: $text_color;
@@ -134,10 +174,10 @@ $menu4_text_color3: #BEFF7F;
       margin: 15px;
     }
     .menu1 {
-      @include card_style($menu1_bg_color, $menu1_text_color, (Mistral, serif), 14px);
+      @include card_style($menu1_bg_color, $menu1_text_color, ("Mistral1", serif), 14px);
     }
     .menu2 {
-      @include card_style($menu2_bg_color, $menu2_text_color, ("Bell MT", serif), 10px);
+      @include card_style($menu2_bg_color, $menu2_text_color, ("Bell MT1", serif), 10px);
       h2 {
         background: linear-gradient(to right, $menu2_text_color1 0%, $menu2_text_color2 50%, $menu2_text_color3 100%);
         -webkit-background-clip: text;
@@ -148,7 +188,7 @@ $menu4_text_color3: #BEFF7F;
       }
     }
     .menu3 {
-      @include card_style($menu3_bg_color, $menu3_text_color, ("French Script MT", serif), 15px);
+      @include card_style($menu3_bg_color, $menu3_text_color, ("French Script MT1", serif), 15px);
       h2 {
         background: linear-gradient(to right, $menu3_text_color2 0%, $menu3_text_color3 50%, $menu3_text_color4 100%);
         -webkit-background-clip: text;
@@ -159,7 +199,7 @@ $menu4_text_color3: #BEFF7F;
       }
     }
     .menu4 {
-      @include card_style($menu4_bg_color, $menu4_text_color, ("Freestyle Script", serif), 16px);
+      @include card_style($menu4_bg_color, $menu4_text_color, ("Freestyle Script1", serif), 16px);
       h2 {
         background: linear-gradient(to right, $menu4_text_color2 0%, $menu4_text_color3 100%);
         -webkit-background-clip: text;

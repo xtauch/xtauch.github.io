@@ -1,4 +1,28 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Mistral1";
+  src: url("../font/Mistral/Mistral.svg") format("svg"), url("../font/Mistral/Mistral.woff") format("woff"), url("../font/Mistral/Mistral.ttf") format("ttf"), url("../font/Mistral/Mistral.woff2") format("woff2"), url("../font/Mistral/Mistral.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Bell MT1";
+  src: url("../font/BellMT/BellMT.svg") format("svg"), url("../font/BellMT/BellMT.woff") format("woff"), url("../font/BellMT/BellMT.ttf") format("ttf"), url("../font/BellMT/BellMT.woff2") format("woff2"), url("../font/BellMT/BellMT.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "French Script MT1";
+  src: url("../font/FrenchScriptMT/FrenchScriptMT.svg") format("svg"), url("../font/FrenchScriptMT/FrenchScriptMT.woff") format("woff"), url("../font/FrenchScriptMT/FrenchScriptMT.ttf") format("ttf"), url("../font/FrenchScriptMT/FrenchScriptMT.woff2") format("woff2"), url("../font/FrenchScriptMT/FrenchScriptMT.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Freestyle Script1";
+  src: url("../font/FreestyleScriptPlain/FreestyleScriptPlain.svg") format("svg"), url("../font/FreestyleScriptPlain/FreestyleScriptPlain.woff") format("woff"), url("../font/FreestyleScriptPlain/FreestyleScriptPlain.ttf") format("ttf"), url("../font/FreestyleScriptPlain/FreestyleScriptPlain.woff2") format("woff2"), url("../font/FreestyleScriptPlain/FreestyleScriptPlain.eot") format("eot");
+  font-weight: normal;
+  font-style: normal; }
+
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg); }
@@ -89,7 +113,7 @@
       height: 300px;
       background: #FCDFDB;
       color: #493030;
-      font-family: Mistral, serif;
+      font-family: "Mistral1", serif;
       font-size: 14px;
       text-align: center;
       display: flex;
@@ -112,7 +136,7 @@
       height: 300px;
       background: #FFF5FE;
       color: #e0aabc;
-      font-family: "Bell MT", serif;
+      font-family: "Bell MT1", serif;
       font-size: 10px;
       text-align: center;
       display: flex;
@@ -141,7 +165,7 @@
       height: 300px;
       background: #F9F9F9;
       color: #bfc7ff;
-      font-family: "French Script MT", serif;
+      font-family: "French Script MT1", serif;
       font-size: 15px;
       text-align: center;
       display: flex;
@@ -170,7 +194,7 @@
       height: 300px;
       background: #FDFFFD;
       color: #bde8bb;
-      font-family: "Freestyle Script", serif;
+      font-family: "Freestyle Script1", serif;
       font-size: 16px;
       text-align: center;
       display: flex;
