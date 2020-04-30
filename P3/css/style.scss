@@ -7,8 +7,16 @@ $menu3_bg_color: #F9F9F9;
 $menu4_bg_color: #FDFFFD;
 $menu1_text_color: #493030;
 $menu2_text_color: #e0aabc;
+$menu2_text_color1: #C67412;
+$menu2_text_color2: #A76A9B;
+$menu2_text_color3: #686bd8;
 $menu3_text_color: #bfc7ff;
+$menu3_text_color2: #0228DD;
+$menu3_text_color3: #0670F3;
+$menu3_text_color4: #229DF9;
 $menu4_text_color: #bde8bb;
+$menu4_text_color2: #45993E;
+$menu4_text_color3: #BEFF7F;
 
 @mixin style_01 {
   background: $main_color;
@@ -101,6 +109,7 @@ $menu4_text_color: #bde8bb;
   flex-direction: column;
   margin: 0;
   width: auto;
+  height: 100vh;
 }
 
 #main_header {
@@ -112,6 +121,8 @@ $menu4_text_color: #bde8bb;
 }
 
 #menu {
+  margin-top: auto;
+  margin-bottom: auto;
   &__row1, &__row2 {
     display: flex;
     flex-direction: row;
@@ -127,12 +138,36 @@ $menu4_text_color: #bde8bb;
     }
     .menu2 {
       @include card_style($menu2_bg_color, $menu2_text_color, ("Bell MT", serif), 10px);
+      h2 {
+        background: linear-gradient(to right, $menu2_text_color1 0%, $menu2_text_color2 50%, $menu2_text_color3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      h3 {
+        color: $menu2_text_color1;
+      }
     }
     .menu3 {
       @include card_style($menu3_bg_color, $menu3_text_color, ("French Script MT", serif), 15px);
+      h2 {
+        background: linear-gradient(to right, $menu3_text_color2 0%, $menu3_text_color3 50%, $menu3_text_color4 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      h3 {
+        color: $menu3_text_color3 ;
+      }
     }
     .menu4 {
       @include card_style($menu4_bg_color, $menu4_text_color, ("Freestyle Script", serif), 16px);
+      h2 {
+        background: linear-gradient(to right, $menu4_text_color2 0%, $menu4_text_color3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      h3 {
+        color: limegreen;
+      }
     }
   }
   button {
@@ -176,7 +211,7 @@ $menu4_text_color: #bde8bb;
 /*****MOBILE*****/
 
 /* Sur les écrans, quand la largeur de la fenêtre fait au maximum 640px */
-@media (max-width: 640px) {
+@media (min-width:375px) and (max-width: 640px) {
   #container {
     font-size: 150%;
     width: auto;
@@ -234,4 +269,9 @@ $menu4_text_color: #bde8bb;
     }
   }
 
+  #menu {
+    button {
+      font-size: 14px;
+    }
+  }
 }

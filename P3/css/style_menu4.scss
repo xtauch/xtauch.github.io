@@ -60,6 +60,11 @@ $menu4_text_color3: #BEFF7F;
   flex-direction: column;
   margin: 0;
   width: auto;
+  height: 100vh;
+}
+
+#menu_title {
+  text-align: center;
 }
 
 #main_header {
@@ -68,15 +73,16 @@ $menu4_text_color3: #BEFF7F;
     font-weight: bold;
     text-align: center;
   }
+  margin-bottom: 20px;
 }
 
-
 #menu {
-  margin: 20px;
+  margin: auto 20px;
   padding: 30px;
   background: $menu4_bg_color;
   font-family: "Freestyle Script", serif;
   color: $menu4_text_color1;
+
   h2 {
     text-align: center;
     background: linear-gradient(to right, $menu4_text_color2 0%, $menu4_text_color3 100%);
@@ -104,6 +110,7 @@ $menu4_text_color3: #BEFF7F;
 }
 
 #main_footer {
+  margin-top: 20px;
   @include style_01;
   position: sticky;
   bottom: 0;
@@ -135,8 +142,14 @@ $menu4_text_color3: #BEFF7F;
 /* Sur les écrans, quand la largeur de la fenêtre fait au maximum 640px */
 @media (max-width: 640px) {
   #container {
-    font-size: 150%;
+    font-size: 100%;
     width: auto;
+  }
+
+  #menu {
+    .menu_header1, .menu_header2, .menu_header3  {
+      font-size: 13px;
+    }
   }
 }
 

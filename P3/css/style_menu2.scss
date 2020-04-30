@@ -60,6 +60,11 @@ $menu2_text_color3: #686bd8;
   flex-direction: column;
   margin: 0;
   width: auto;
+  height: 100vh;
+}
+
+#menu_title {
+  text-align: center;
 }
 
 #main_header {
@@ -68,10 +73,11 @@ $menu2_text_color3: #686bd8;
     font-weight: bold;
     text-align: center;
   }
+  margin-bottom: 20px;
 }
 
 #menu {
-  margin: 20px;
+  margin: auto 20px;
   padding: 30px;
   background: $menu2_bg_color;
   font-family: "Bell MT", serif;
@@ -120,6 +126,7 @@ $menu2_text_color3: #686bd8;
 }
 
 #main_footer {
+  margin-top: 20px;
   @include style_01;
   position: sticky;
   bottom: 0;
@@ -151,8 +158,14 @@ $menu2_text_color3: #686bd8;
 /* Sur les écrans, quand la largeur de la fenêtre fait au maximum 640px */
 @media (max-width: 640px) {
   #container {
-    font-size: 150%;
+    font-size: 100%;
     width: auto;
+  }
+
+  #menu {
+    .menu_header1, .menu_header2, .menu_header3  {
+      font-size: 13px;
+    }
   }
 }
 

@@ -28,7 +28,11 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  width: auto; }
+  width: auto;
+  height: 100vh; }
+
+#menu_title {
+  text-align: center; }
 
 .title {
   display: flex;
@@ -41,13 +45,14 @@
 
 #main_header {
   background: #569C87;
-  color: #E8C44E; }
+  color: #E8C44E;
+  margin-bottom: 20px; }
   #main_header h1 {
     font-weight: bold;
     text-align: center; }
 
 #menu {
-  margin: 20px;
+  margin: auto 20px;
   padding: 30px;
   background: #FCDFDB;
   font-family: Mistral, serif; }
@@ -100,6 +105,7 @@
       margin-right: 4px; }
 
 #main_footer {
+  margin-top: 20px;
   background: #569C87;
   color: #E8C44E;
   position: sticky;
@@ -125,8 +131,10 @@
 /* Sur les écrans, quand la largeur de la fenêtre fait au maximum 640px */
 @media (max-width: 640px) {
   #container {
-    font-size: 150%;
-    width: auto; } }
+    font-size: 100%;
+    width: auto; }
+  #menu .menu_header1, #menu .menu_header2, #menu .menu_header3 {
+    font-size: 13px; } }
 
 /* -------------------------------------------- */
 /*****HANDLE DESKTOP FULLSCREEN*****/
