@@ -1,4 +1,4 @@
-getData("teddies");
+fetchData("teddies");
 
 function createTeddies(response) {
     for (let i = 0; i < response.length; i++) {
@@ -32,21 +32,20 @@ function createTeddies(response) {
         document.getElementById(teddy.id).addEventListener('click', function () {
             localStorage.setItem('productID', teddy.id);
             localStorage.setItem('category', "teddies");
+            localStorage.setItem('currentItem', JSON.stringify(teddy))
             location.href="../html/product.html";
             console.log(teddy.id);
         });
     }
 }
 
-function getData(category){
-    let request = new XMLHttpRequest();
-    request.open("GET", "http://localhost:3000/api/"+category);
-    request.send();
-    request.onreadystatechange = function() {
-        //If success
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            let response = JSON.parse(this.responseText);
-            createTeddies(response);
-        }
-    }
+function fetchData(category){
+    fetch("http://localhost:3000/api/"+category)
+        .then((resp) => resp.json()) // Transform the data into json
+        .then(function(data){
+            createTeddies(data);
+        })
+        .catch(function(error) {
+            console.log(error)
+        });
 }

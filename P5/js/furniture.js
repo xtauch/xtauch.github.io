@@ -1,8 +1,8 @@
-getData("furniture");
+fetchData("furniture");
 
 function createFurniture(response) {
     for (let i = 0; i < response.length; i++) {
-        let furniture = new Items(response[i].varnish, response[i]._id, response[i].name, response[i].price, response[i].imageUrl, response[i].description);
+        let furniture = new Furniture(response[i].varnish, response[i]._id, response[i].name, response[i].price, response[i].imageUrl, response[i].description);
         let productContainer = document.getElementById("products");
         if (i === 0) {
             productContainer.innerHTML +=
@@ -28,26 +28,25 @@ function createFurniture(response) {
         }
     }
     for (let i = 0; i < response.length; i++) {
-        let furniture = new Items(response[i].varnish, response[i]._id, response[i].name, response[i].price, response[i].imageUrl, response[i].description);
+        let furniture = new Furniture(response[i].varnish, response[i]._id, response[i].name, response[i].price, response[i].imageUrl, response[i].description);
         document.getElementById(furniture.id).addEventListener('click', function () {
             localStorage.setItem('productID', furniture.id);
             localStorage.setItem('category', "furniture");
+            localStorage.setItem('currentItem', JSON.stringify(furniture))
             location.href="../html/product.html";
             console.log(furniture.id);
         });
     }
 }
 
-function getData(category){
-    let request = new XMLHttpRequest();
-    request.open("GET", "http://localhost:3000/api/"+category);
-    request.send();
-    request.onreadystatechange = function() {
-        //If success
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            let response = JSON.parse(this.responseText);
-            createFurniture(response);
-        }
-    }
+function fetchData(category){
+    fetch("http://localhost:3000/api/"+category)
+        .then((resp) => resp.json()) // Transform the data into json
+        .then(function(data){
+            createFurniture(data);
+        })
+        .catch(function(error) {
+            console.log(error)
+        });
 }
 

@@ -1,9 +1,9 @@
 let category = localStorage.getItem('category');
 let productID = localStorage.getItem('productID');
+let currentItem = JSON.parse(localStorage.getItem('currentItem'));
 
 
-
-getProduct();
+fetchProduct();
 
 function createProductDetails(response) {
     let productContainer = document.getElementById("products");
@@ -25,7 +25,7 @@ function createProductDetails(response) {
         "</div>";
 
     document.getElementById("buttonAdd").addEventListener('click', function () {
-        addToCart(response._id);
+        addToCart();
     });
 
     let dropdownSelect = document.getElementById("dropdownSelect");
@@ -69,31 +69,54 @@ function createProductDetails(response) {
     }
 }
 
-function getProduct(){
-    let request = new XMLHttpRequest();
-
-    request.open("GET", "http://localhost:3000/api/"+category+"/"+productID);
-    request.send();
-    request.onreadystatechange = function() {
-        //If success
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            let response = JSON.parse(this.responseText);
-            createProductDetails(response);
-            console.log(response);
-        }
-    };
+function fetchProduct(){
+    fetch("http://localhost:3000/api/"+category+"/"+productID)
+        .then((resp) => resp.json()) // Transform the data into json
+        .then(function(data){
+            createProductDetails(data);
+        })
+        .catch(function(error) {
+            console.log(error)
+        });
 }
 
+function addToCart() {
+    let cart = [];
 
-function addToCart(id) {
-    let cart = new Array();
-    if (localStorage.getItem("products") == null) {
-        localStorage.setItem("products", JSON.stringify(cart));
-    } else {
-         cart = JSON.parse(localStorage.getItem("products"));
+    switch (currentItem.category) {
+        case "teddies" :
+            if (localStorage.getItem("teddiesProducts") == null) {
+                localStorage.setItem("teddiesProducts", JSON.stringify(cart));
+            }
+                cart = JSON.parse(localStorage.getItem("teddiesProducts"));
+                cart.push(currentItem);
+                localStorage.setItem("teddiesProducts", JSON.stringify(cart));
+            break
+
+        case "cameras" :
+            if (localStorage.getItem("camerasProducts") == null) {
+                localStorage.setItem("camerasProducts", JSON.stringify(cart));
+            }
+                cart = JSON.parse(localStorage.getItem("camerasProducts"));
+                cart.push(currentItem);
+                localStorage.setItem("camerasProducts", JSON.stringify(cart));
+            break
+
+        case "furniture" :
+            if (localStorage.getItem("furnitureProducts") == null) {
+                localStorage.setItem("furnitureProducts", JSON.stringify(cart));
+            }
+                cart = JSON.parse(localStorage.getItem("furnitureProducts"));
+                cart.push(currentItem);
+                localStorage.setItem("furnitureProducts", JSON.stringify(cart));
+            break
     }
-    cart.push(id);
-    localStorage.setItem("products", JSON.stringify(cart));
-    console.log(localStorage.getItem("products"));
+
+    let cartCount = JSON.parse(localStorage.getItem("cartCount"));
+    cartCount++
+    document.getElementById("cartCount").innerHTML = cartCount
+    localStorage.setItem("cartCount", cartCount)
 }
+
+
 

@@ -1,4 +1,4 @@
-getData("cameras");
+fetchData("cameras");
 
 function createCameras(response) {
     for (let i = 0; i < response.length; i++) {
@@ -32,38 +32,20 @@ function createCameras(response) {
         document.getElementById(camera.id).addEventListener('click', function () {
             localStorage.setItem('productID', camera.id);
             localStorage.setItem('category', "cameras");
+            localStorage.setItem('currentItem', JSON.stringify(camera))
             location.href="../html/product.html";
             console.log(camera.id);
         });
     }
 }
 
-function getData(category){
-    let request = new XMLHttpRequest();
-    request.open("GET", "http://localhost:3000/api/"+category);
-    request.send();
-    request.onreadystatechange = function() {
-        //If success
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            let response = JSON.parse(this.responseText);
-            switch (category) {
-                case "teddies":
-                    createTeddies(response);
-                    break;
-                case "furniture":
-                    createFurniture(response);
-                    break;
-                case "cameras":
-                    createCameras(response);
-                    break;
-            }
-
-        }
-    };
+function fetchData(category){
+    fetch("http://localhost:3000/api/"+category)
+        .then((resp) => resp.json()) // Transform the data into json
+        .then(function(data){
+            createCameras(data);
+        })
+        .catch(function(error) {
+            console.log(error)
+        });
 }
-
-//localStorage.setItem('monChat', 'Tom');
-//let cat = localStorage.getItem('myCat');
-//localStorage.removeItem('myCat');
-// Effacer tous les éléments
-//localStorage.clear();

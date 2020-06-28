@@ -1,14 +1,20 @@
-// localStorage.clear();
 let amountToPay = 0;
-let products = JSON.parse(localStorage.getItem("products"));
+
 
 new Promise(function(resolve, reject) {
-    products.forEach(element => getProduct(element));
+    if (localStorage.getItem("teddiesProducts") != null) {
+        JSON.parse(localStorage.getItem("teddiesProducts")).forEach(element => fetchProduct(element));
+    }
+    if (localStorage.getItem("camerasProducts") != null) {
+        JSON.parse(localStorage.getItem("camerasProducts")).forEach(element => fetchProduct(element));
+    }
+    if (localStorage.getItem("furnitureProducts") != null) {
+        JSON.parse(localStorage.getItem("furnitureProducts")).forEach(element => fetchProduct(element));
+    }
     setTimeout(() => resolve(),250);
 }).then(function() {
     buildCartResume();
 });
-
 
 function createProductItem(response) {
     let productContainer = document.getElementById("productsList");
@@ -21,6 +27,9 @@ function createProductItem(response) {
         "<div class=\"card-body\">\n" +
         "<h5 class=\"card-title\">"+response.name+"</h5>\n" +
         "<h6 class=\"card-title\">"+"Prix : "+response.price+"</h6>\n" +
+        "<select id=\"dropdownSelect\" class=\"browser-default custom-select my-2\">\n" +
+        "<option selected></option>\n" +
+        "</select>\n" +
         "</div>\n" +
         "</div>\n" +
         "</div>";
@@ -37,39 +46,19 @@ function buildCartResume() {
         "</div>";
 
     document.getElementById("buttonAdd").addEventListener('click', function () {
-        location.href="../html/confirmation.html";
+        localStorage.setItem('cartAmount',amountToPay);
+        location.href="../html/form.html";
     });
 }
 
-
-
-
-function getProduct(element){
-    let request = new XMLHttpRequest();
-    let category;
-
-    if (element === "5be9c8541c9d440000665243" || element === "5beaa8bf1c9d440000a57d94" || element === "5beaaa8f1c9d440000a57d95" ||
-        element === "5beaabe91c9d440000a57d96" || element === "5beaacd41c9d440000a57d97") {
-        category = "teddies";
-    } else if (element === "5be1ed3f1c9d44000030b061" || element === "5be1ef211c9d44000030b062" || element === "5be9bc241c9d440000a730e7" ||
-        element === "5be9c4471c9d440000a730e8" || element === "5be9c4c71c9d440000a730e9") {
-        category = "cameras";
-    } else if (element === "5be9cc611c9d440000c1421e" || element === "5beaadda1c9d440000a57d98" || element === "5beaae361c9d440000a57d99" ||
-        element === "5beaaf2e1c9d440000a57d9a" || element === "5beab2061c9d440000a57d9b") {
-        category = "furniture";
-    } else {
-        category = null;
-    }
-
-    request.open("GET", "http://localhost:3000/api/"+category+"/"+element);
-    request.send();
-    request.onreadystatechange = function() {
-        //If success
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            let response = JSON.parse(this.responseText);
-            createProductItem(response);
-            amountToPay += response.price;
-            console.log(response);
-        }
-    };
+function fetchProduct(element){
+    fetch("http://localhost:3000/api/"+element.category+"/"+element.id)
+        .then((resp) => resp.json()) // Transform the data into json
+        .then(function(data){
+            createProductItem(data);
+            amountToPay += data.price;
+        })
+        .catch(function(error) {
+            console.log(error)
+        });
 }
