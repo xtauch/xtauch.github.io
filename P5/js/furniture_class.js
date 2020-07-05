@@ -1,5 +1,5 @@
 class Furniture {
-    constructor(varnish, id, name, price, imageUrl, description, quantity = 0, category = "furniture") {
+    constructor(varnish, id, name, price, imageUrl, description, quantity = 1, category = "furniture") {
         this.varnish = varnish;
         this.id = id;
         this.name = name;

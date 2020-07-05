@@ -1,12 +1,29 @@
-document.getElementById("submitForm").addEventListener("click", function () {
-    let firstName = document.getElementById("name").value
-    let lastName = document.getElementById("lastName").value
-    let address = document.getElementById("address").value
-    let city = document.getElementById("city").value
-    let email = document.getElementById("email").value
-    let contact = new Contact(firstName, lastName, address, city, email);
-    sendProduct(contact);
-})
+document.getElementById("form_1").onsubmit = function(event) {
+    event.preventDefault()
+}
+
+function onSubmitButton() {
+    let firstName = document.getElementById("name")
+    let lastName = document.getElementById("lastName")
+    let address = document.getElementById("address")
+    let city = document.getElementById("city")
+    let email = document.getElementById("email")
+    if (firstName.checkValidity() === true && lastName.checkValidity() === true && address.checkValidity() === true
+        && city.checkValidity() === true && email.checkValidity() === true){
+
+        let contact = new Contact(firstName, lastName, address, city, email)
+
+        new Promise(function(resolve, reject) {
+            sendProduct(contact)
+            setTimeout(() => resolve(),250)
+        }).then(function() {
+            location.href="../html/confirm.html"
+        })
+
+
+
+    }
+}
 
 function sendProduct(contact){
     let url
@@ -31,9 +48,6 @@ function sendProduct(contact){
         JSON.parse(localStorage.getItem("furnitureProducts")).forEach(element => appendProductList(element.id, productList))
         fetchData(url, contact, productList)
     }
-
-    location.href="../html/confirmation.html";
-
 }
 
 
@@ -42,7 +56,6 @@ function sendProduct(contact){
 function appendProductList(id, list) {
     let product = new Products(id)
     list.push(product)
-    console.log("append")
 }
 
 function fetchData(url, contact, productList) {

@@ -1,4 +1,5 @@
-fetchData("teddies");
+fetchData("teddies")
+
 
 function createTeddies(response) {
     for (let i = 0; i < response.length; i++) {
@@ -28,7 +29,7 @@ function createTeddies(response) {
         }
     }
     for (let i = 0; i < response.length; i++) {
-        let teddy = new Teddies(response[i].colors, response[i]._id, response[i].name, response[i].price, response[i].imageUrl, response[i].description);
+        let teddy = new Teddies(response[i].colors, response[i]._id, response[i].name, response[i].price, response[i].imageUrl, response[i].description)
         document.getElementById(teddy.id).addEventListener('click', function () {
             localStorage.setItem('productID', teddy.id);
             localStorage.setItem('category', "teddies");
@@ -43,7 +44,7 @@ function fetchData(category){
     fetch("http://localhost:3000/api/"+category)
         .then((resp) => resp.json()) // Transform the data into json
         .then(function(data){
-            createTeddies(data);
+            createTeddies(data)
         })
         .catch(function(error) {
             console.log(error)

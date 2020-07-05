@@ -1,5 +1,5 @@
 class Teddies {
-    constructor(colors, id, name, price, imageUrl, description, quantity = 0, category = "teddies") {
+    constructor(colors, id, name, price, imageUrl, description, quantity = 1, category = "teddies") {
         this.colors = colors;
         this.id = id;
         this.name = name;

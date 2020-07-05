@@ -80,35 +80,43 @@ function fetchProduct(){
         });
 }
 
+function incrementItemQuantity(cart) {
+    if (cart.find(element => element.id === currentItem.id) !== undefined){
+        cart.find(element => element.id === currentItem.id).quantity +=1
+    } else {
+        cart.push(currentItem)
+    }
+}
+
 function addToCart() {
-    let cart = [];
+    let cart = []
 
     switch (currentItem.category) {
         case "teddies" :
             if (localStorage.getItem("teddiesProducts") == null) {
                 localStorage.setItem("teddiesProducts", JSON.stringify(cart));
             }
-                cart = JSON.parse(localStorage.getItem("teddiesProducts"));
-                cart.push(currentItem);
-                localStorage.setItem("teddiesProducts", JSON.stringify(cart));
+            cart = JSON.parse(localStorage.getItem("teddiesProducts"));
+            incrementItemQuantity(cart)
+            localStorage.setItem("teddiesProducts", JSON.stringify(cart));
             break
 
         case "cameras" :
             if (localStorage.getItem("camerasProducts") == null) {
                 localStorage.setItem("camerasProducts", JSON.stringify(cart));
             }
-                cart = JSON.parse(localStorage.getItem("camerasProducts"));
-                cart.push(currentItem);
-                localStorage.setItem("camerasProducts", JSON.stringify(cart));
+            cart = JSON.parse(localStorage.getItem("camerasProducts"));
+            incrementItemQuantity(cart)
+            localStorage.setItem("camerasProducts", JSON.stringify(cart));
             break
 
         case "furniture" :
             if (localStorage.getItem("furnitureProducts") == null) {
                 localStorage.setItem("furnitureProducts", JSON.stringify(cart));
             }
-                cart = JSON.parse(localStorage.getItem("furnitureProducts"));
-                cart.push(currentItem);
-                localStorage.setItem("furnitureProducts", JSON.stringify(cart));
+            cart = JSON.parse(localStorage.getItem("furnitureProducts"));
+            incrementItemQuantity(cart)
+            localStorage.setItem("furnitureProducts", JSON.stringify(cart));
             break
     }
 

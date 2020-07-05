@@ -1,5 +1,5 @@
 class Cameras {
-    constructor(lenses, id, name, price, imageUrl, description, quantity = 0, category = "cameras") {
+    constructor(lenses, id, name, price, imageUrl, description, quantity = 1, category = "cameras") {
         this.lenses = lenses;
         this.id = id;
         this.name = name;
