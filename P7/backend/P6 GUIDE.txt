@@ -1,0 +1,22 @@
+npm init => initialise projet (crée package.json et on définit server.js comme point d'entrée)
+dans server.js on crée le server node :
+1.import package http de Node
+etc
+
+Utilise nodemon pour prendre en compte les modifs sur le server automatiquement (nodemon server)
+
+Framework Express pour faciliter le dev de l'API
+(backend => npm install --save express)
+crée app.js (on y place l'app Express)
+set app dans server.js
+
+configure réponses dans app.js
+
+Express = série de middleware (fonctions) qui reçoivent des objets request/response (et méthode next pour passer l'execution)
+
+npm install --save body-parser nécessaire pour extraire l'objet JSON de la requete POST
+
+1.Frontend
+Clone project
+npm i node-sass > ng serve
+localhost:4200
