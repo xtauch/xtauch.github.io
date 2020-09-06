@@ -1,8 +1,8 @@
 import { extendObservable} from "mobx";
 
-/*
- UserStore
- */
+
+// UserStore
+
 
 class UserStore {
     constructor() {

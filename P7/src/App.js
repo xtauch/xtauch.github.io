@@ -9,9 +9,8 @@ import './App.css';
 
 class App extends React.Component {
 
-    async componentDidMount() { // When component loaded check is user logged in
-        try {
-            let res = await fetch('/isLoggedIn', {
+    componentDidMount() { // When component loaded check if user is logged in
+        fetch('/isLoggedIn', {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',
@@ -19,51 +18,45 @@ class App extends React.Component {
                 }
             })
 
-            let result = await res.json()
-
-            if (result && result.success) { // Deal with the result of the request
-                UserStore.loading = false
-                UserStore.isLoggedIn = true
-                UserStore.username = result.username
-            }
-
-            else {
+            .then((resp) => resp.json()) // Transform the data into json
+            .then(function(result){
+                if (result && result.success) { // Deal with the result of the request
+                    UserStore.loading = false
+                    UserStore.isLoggedIn = true
+                    UserStore.username = result.username
+                }
+                else {
+                    UserStore.loading = false
+                    UserStore.isLoggedIn = false
+                }
+            })
+            .catch(function(error) {
                 UserStore.loading = false
                 UserStore.isLoggedIn = false
-            }
+            })
 
-        }
-
-        catch (e) {
-            UserStore.loading = false
-            UserStore.isLoggedIn = false
-        }
     }
 
-    async doLogout() { // When component loaded check is user logged in
+    doLogout() {
 
-        try {
-
-            let res = await fetch('/logout', {
+        fetch('/logout', {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 }
             })
+            .then((resp) => resp.json()) // Transform the data into json
+            .then(function(result){
+                if (result && result.success) { // Deal with the result of the request
+                    UserStore.isLoggedIn = false
+                    UserStore.username = ''
+                }
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
 
-            let result = await res.json()
-
-            if (result && result.success) { // Deal with the result of the request
-                UserStore.isLoggedIn = false
-                UserStore.username = ''
-            }
-
-        }
-
-        catch (e) {
-           console.log(e)
-        }
     }
 
 

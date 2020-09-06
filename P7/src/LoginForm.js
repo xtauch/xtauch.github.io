@@ -32,12 +32,9 @@ class LoginForm extends React.Component {
         })
     }
 
-    async doLogin() {
+    doLogin() {
 
-        if (!this.state.username) {
-            return
-        }
-        if (!this.state.password) {
+        if (!this.state.username || !this.state.password) {
             return
         }
 
@@ -45,9 +42,7 @@ class LoginForm extends React.Component {
             buttonDisabled: true
         })
 
-
-        try {
-            let res = await fetch('/login', {
+       fetch('/login', {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',
@@ -58,23 +53,51 @@ class LoginForm extends React.Component {
                     password: this.state.password
                 })
             })
+                .then((resp) => resp.json()) // Transform the data into json
+                .then(function(result){
+                    if (result && result.success) {
+                        UserStore.isLoggedIn = true
+                        UserStore.username = result.username
+                    }
+                })
+                .catch(function(error) {
+                    //this.resetForm()
+                    alert(error.msg)
+                })
 
-            let result = await res.json()
-            if (result && result.success) {
-                UserStore.isLoggedIn = true
-                UserStore.username = result.username
-            }
+    }
 
-            else if (result && result.success === false) {
-                this.resetForm()
-                alert(result.msg)
-            }
+    doSignIn() {
+        if (!this.state.username || !this.state.password) {
+            return
         }
 
-        catch(e) {
-            console.log(e)
-            this.resetForm()
-        }
+        this.setState({
+            buttonDisabled: true
+        })
+
+        fetch('http://localhost:3000/api/auth/signup', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: this.state.username,
+                password: this.state.password
+            })
+        })
+            .then((resp) => resp.json()) // Transform the data into json
+            .then(function(result){
+                if (result && result.success) {
+                    UserStore.isLoggedIn = true
+                    UserStore.username = result.username
+                }
+            })
+            .catch(function(error) {
+                //this.resetForm()
+                alert(error.msg)
+            })
     }
 
     render() {
@@ -99,6 +122,12 @@ class LoginForm extends React.Component {
                     text='Login'
                     disabled={this.state.buttonDisabled}
                     onClick={ () => this.doLogin()}
+                />
+
+                <SubmitButton
+                    text='Sign In'
+                    disabled={this.state.buttonDisabled}
+                    onClick={ () => this.doSignIn()}
                 />
 
             </div>
