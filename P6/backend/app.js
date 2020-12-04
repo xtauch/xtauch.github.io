@@ -8,7 +8,7 @@ const userRoutes = require('./routes/user')
 
 const app = express()
 
-mongoose.connect('mongodb+srv://Admin:dbadmin@cluster0.bd6jj.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect(`${process.env.DB_ACCESS}`,
     { useNewUrlParser: true,
         useUnifiedTopology: true })
     .then(() => console.log('Connexion à MongoDB réussie !'))
