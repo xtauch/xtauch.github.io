@@ -9,7 +9,10 @@ class UserStore {
         extendObservable(this, {
             loading : true,
             isLoggedIn: false,
-            username: ''
+            username: '',
+            selectedPost: {},
+            listOfPosts: [],
+            listOfComments: []
         })
     }
 }
