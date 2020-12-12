@@ -5,21 +5,26 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server"
+    "start": "nodemon server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-basic-auth": "^1.2.0",
     "express-mysql-session": "^2.1.4",
     "express-session": "^1.17.1",
     "mongoose": "^5.10.3",
     "mongoose-unique-validator": "^2.0.3",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "node": "^14.8.0",
+    "nodemon": "^2.0.4"
   },
   "devDependencies": {
+    "cookie-parser": "^1.4.5",
     "jsonwebtoken": "^8.5.1"
   }
 }
