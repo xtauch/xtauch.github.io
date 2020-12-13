@@ -170,14 +170,16 @@ class Home extends React.Component {
 
             return (
                 <div className="app">
-                    <header className="mainHeader">
-                        <UploadButton/>
-                        <DeleteAccountButton/>
-                        <LogoutButton disabled={false}/>
-                    </header>
+                    <div>
+                        <header className="mainHeader">
+                            <UploadButton/>
+                            <DeleteAccountButton/>
+                            <LogoutButton disabled={false}/>
+                        </header>
 
-                    <div className="postsContainerBox">
-                        {UserStore.listOfPosts}
+                        <div className="postsContainerBox">
+                            {UserStore.listOfPosts}
+                        </div>
                     </div>
                 </div>
             )

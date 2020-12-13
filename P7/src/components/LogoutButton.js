@@ -22,7 +22,6 @@ class LogoutButton extends React.Component {
             .catch(function(error) {
                 console.log(error)
             })
-
     }
 
     render() {
@@ -38,7 +37,5 @@ class LogoutButton extends React.Component {
         )
     }
 }
-
-
 
 export default LogoutButton;

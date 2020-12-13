@@ -3,9 +3,10 @@ import InputField from "../components/InputField";
 import SubmitButton from "../components/SubmitButton";
 import UserStore from "../stores/UserStore";
 import {observer} from "mobx-react";
-import {Image} from "react-bootstrap";
+import {Col, Image, Row} from "react-bootstrap";
 import {Redirect} from "react-router";
-import {Link} from "react-router-dom";
+import LogoutButton from "../components/LogoutButton";
+import HomeButton from "../components/HomeButton";
 
 class CommentForm extends React.Component {
 
@@ -95,7 +96,7 @@ class CommentForm extends React.Component {
                 .catch(function(error) {
                     alert(error)
                     console.log("Une erreur s'est produite, réessayez plus tard !")
-                }.bind(this))
+                })
     }
 
     deleteComment(id) {
@@ -147,8 +148,12 @@ class CommentForm extends React.Component {
                 for (let i = 0; i < result.listOfComments.length; i++) {
                     UserStore.listOfComments.push(
                         <div className="postsContainer">
-                            <text>{result.listOfComments[i].username}</text>
-                            <text>{result.listOfComments[i].postdate.slice(0, 10)}</text>
+                            <Row>
+                                <Col className={"h6"}>
+                                    <text>{result.listOfComments[i].username} - </text>
+                                    <text className={"h10"}>{result.listOfComments[i].postdate.slice(0, 10)}</text>
+                                </Col>
+                            </Row>
                             <text>{result.listOfComments[i].comment}</text>
                             <SubmitButton
                                 text={'Delete'}
@@ -171,35 +176,32 @@ class CommentForm extends React.Component {
             return <Redirect to={"/"} />
         } else {
             return (
-                <div className="postsContainerBox">
+                <div className="app">
+                    <div>
+                        <header className="mainHeader">
+                            <HomeButton/>
+                            <SubmitButton
+                                text='Post'
+                                disabled={this.state.buttonDisabled}
+                                onClick={ () => this.postComment()}
+                            />
+                        </header>
 
-                    <Image fluid src = {Buffer.from(UserStore.selectedPost.image).toString()} />
+                        <div>
+                            <Image className="ImageCenter" fluid src = {Buffer.from(UserStore.selectedPost.image).toString()} />
+                            <InputField
+                                type="textarea"
+                                className="commentInput"
+                                placeholder='Write comments...'
+                                value={this.state.comment ? this.state.comment : ''}
+                                onChange={ (val) => this.setInputValue('comment', val) }
+                            />
+                        </div>
 
-                    <InputField
-                        type="textarea"
-                        className="commentInput"
-                        placeholder='Write comments...'
-                        value={this.state.comment ? this.state.comment : ''}
-                        onChange={ (val) => this.setInputValue('comment', val) }
-                    />
-
-                    <SubmitButton
-                        text='Post'
-                        disabled={this.state.buttonDisabled}
-                        onClick={ () => this.postComment()}
-                    />
-
-                    <Link to="/home">
-                        <button
-                            className='btn-light'>
-                            Back
-                        </button>
-                    </Link>
-
-                    <div className="postsContainerBox">
-                        {UserStore.listOfComments}
+                        <div className="postsContainerBox">
+                            {UserStore.listOfComments}
+                        </div>
                     </div>
-
                 </div>
             )
         }

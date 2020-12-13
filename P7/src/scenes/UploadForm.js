@@ -1,12 +1,13 @@
 import React from 'react';
 import InputField from "../components/InputField";
 import SubmitButton from "../components/SubmitButton";
+import HomeButton from "../components/HomeButton";
 import UserStore from "../stores/UserStore";
-import {Link} from "react-router-dom";
 import {Image} from "react-bootstrap";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Redirect} from "react-router";
+import LogoutButton from "../components/LogoutButton";
 let that; //Conserve Context
 
 class UploadForm extends React.Component {
@@ -128,38 +129,38 @@ class UploadForm extends React.Component {
             return <Redirect to={"/home"} />
         } else {
         return (
-            <div className="postsContainerBox">
+            <div className="app">
+                <header className="mainHeader">
+                    <HomeButton/>
+                    <SubmitButton
+                        text={'Submit Gif'}
+                        disabled={false}
+                        onClick={ () => this.submitForm() }
+                    />
+                </header>
 
-                <Image
-                    src = {this.state.image}
-                />
+                <div>
+                    <Image
+                        className="ImageCenter"
+                        src = {this.state.image}
+                    />
 
-                <input
-                    type={'file'}
-                    accept={'image/*'}
-                    disabled={false}
-                    onChange={ (val) => this.selectImage(val) }
-                />
+                    <input
+                        type={'file'}
+                        className="ImageCenter"
+                        accept={'image/*'}
+                        disabled={false}
+                        onChange={ (val) => this.selectImage(val) }
+                    />
 
-                <InputField
-                    type='text'
-                    placeholder='Titre'
-                    value={this.state.titre ? this.state.titre : ''}
-                    onChange={ (val) => this.setInputValue('titre', val) }
-                />
-
-                <SubmitButton
-                    text={'Submit Form'}
-                    disabled={false}
-                    onClick={ () => this.submitForm() }
-                />
-
-                <Link to="/home">
-                    <button
-                        className='btn-light'>
-                        Back
-                    </button>
-                </Link>
+                    <InputField
+                        type='text'
+                        className="ImageCenter"
+                        placeholder='Titre'
+                        value={this.state.titre ? this.state.titre : ''}
+                        onChange={ (val) => this.setInputValue('titre', val) }
+                    />
+                </div>
 
                 <ToastContainer
                     position="bottom-center"
