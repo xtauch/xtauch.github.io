@@ -84,6 +84,7 @@ class user {
             let username = req.body.username
             let image = req.body.image
             let titre = req.body.titre
+            titre = titre.replace(/'/g,"''")
             let date = new Date()
             date.setDate(date.getDate() + 1);
             let postdate = date.toJSON().slice(0, 10)
