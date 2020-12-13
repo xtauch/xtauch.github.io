@@ -231,6 +231,10 @@ class user {
             })
             promise.then(() => {
                 console.log("Le commentaire "+id+" a bien été supprimé.")
+                res.json({
+                    success: true
+                })
+                return true
             })
         })
     }

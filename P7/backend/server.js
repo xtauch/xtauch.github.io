@@ -1,30 +1,25 @@
 const http = require('http')
 const cookieParser = require('cookie-parser');
 const express = require('express')
-const path = require('path')
 const mysql = require('mysql')
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session')(session)
 const User = require('./controllers/user')
 const bodyParser = require('body-parser')
-//appExpress.use(express.static(path.join(__dirname, 'build')))
 const app = express()
 const cors = require('cors')
 
 // A random key for signing the cookie
-app.use(cookieParser('82e4e438a0705fabf61f9854e3b575af'));
-
-
+app.use(cookieParser(`${process.env.COOKIE_SECRET}`));
 app.use(cors())
-
 app.use(bodyParser.json({limit: '50mb'}))
 
 //Database
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'mopomo91',
-    database: 'p7'
+    host: `${process.env.DB_HOST}`,
+    user: `${process.env.DB_USER}`,
+    password: `${process.env.DB_PASSWORD}`,
+    database: `${process.env.DB_NAME}`
 })
     db.connect(function (err) {
         if (err) {
@@ -40,8 +35,8 @@ const sessionStore = new MySQLStore({
 }, db)
 
 app.use(session ({
-    key: 'defefefzfe',
-    secret: 'tzrzrtzrt',
+    key: `${process.env.KEY}`,
+    secret: `${process.env.SECRET}`,
     store : sessionStore,
     resave: true,
     saveUninitialized: true,
@@ -65,7 +60,7 @@ const normalizePort = val => {
     return false
 }
 
-const port = normalizePort(process.env.PORT || '3000')
+const port = normalizePort(process.env.PORT || 3000)
 app.set('port', port)
 
 const errorHandler = error => {
@@ -93,7 +88,7 @@ const server = http.createServer(app)
 server.on('error', errorHandler)
 server.on('listening', () => {
     const address = server.address()
-    const bind = typeof address === 'string' ? 'pipe ' + address : 'port' + port
+    const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port
     console.log("Listening on " + bind)
 })
 
