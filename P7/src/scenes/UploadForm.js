@@ -7,7 +7,6 @@ import {Image} from "react-bootstrap";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Redirect} from "react-router";
-import LogoutButton from "../components/LogoutButton";
 let that; //Conserve Context
 
 class UploadForm extends React.Component {

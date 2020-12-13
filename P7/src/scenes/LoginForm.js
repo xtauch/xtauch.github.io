@@ -95,11 +95,14 @@ class LoginForm extends React.Component {
             })
         })
             .then(function(result){
-                if (result.status === 200) {
-                    UserStore.username = result.username
+                if (result && result.status === 200) {
+                    return result.json()
                 }
-                UserStore.isLoggedIn = true // Reset via isLoggedIn
-            })
+            }).then(function(result){
+            UserStore.isLoggedIn = true
+            UserStore.username = result.username
+            this.resetForm()
+        }.bind(this))
             .catch(function(error) {
                 this.resetForm()
                 alert(error)

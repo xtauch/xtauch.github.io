@@ -5,7 +5,6 @@ import UserStore from "../stores/UserStore";
 import {observer} from "mobx-react";
 import {Col, Image, Row} from "react-bootstrap";
 import {Redirect} from "react-router";
-import LogoutButton from "../components/LogoutButton";
 import HomeButton from "../components/HomeButton";
 
 class CommentForm extends React.Component {
