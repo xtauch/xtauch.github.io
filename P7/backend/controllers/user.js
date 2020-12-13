@@ -160,6 +160,7 @@ class user {
             let id = 1
             let username = sess.username
             let comment = req.body.comment
+            comment = comment.replace(/'/g,"''")
             let publication_id = req.body.publication_id
             let date = new Date()
             date.setDate(date.getDate() + 1);
