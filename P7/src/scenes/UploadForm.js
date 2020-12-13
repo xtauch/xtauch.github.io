@@ -123,12 +123,12 @@ class UploadForm extends React.Component {
 
     render() {
         if (UserStore.isLoggedIn === false) {
-            return <Redirect to={"/login"} />
+            return <Redirect to={"/"} />
         } else if (this.state.returnHomePage === true) {
             return <Redirect to={"/home"} />
         } else {
         return (
-            <div className="inputField">
+            <div className="postsContainerBox">
 
                 <Image
                     src = {this.state.image}
@@ -136,7 +136,6 @@ class UploadForm extends React.Component {
 
                 <input
                     type={'file'}
-                    className='btn'
                     accept={'image/*'}
                     disabled={false}
                     onChange={ (val) => this.selectImage(val) }
@@ -157,7 +156,7 @@ class UploadForm extends React.Component {
 
                 <Link to="/home">
                     <button
-                        className='btn'>
+                        className='btn-light'>
                         Back
                     </button>
                 </Link>

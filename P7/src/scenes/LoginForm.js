@@ -65,7 +65,8 @@ class LoginForm extends React.Component {
             }).then(function(result){
                 UserStore.isLoggedIn = true
                 UserStore.username = result.username
-            })
+                this.resetForm()
+            }.bind(this))
                 .catch(function(error) {
                     this.resetForm()
                     alert("L'utilisateur et le mot de passe ne correspondent à aucun utilisateur dans la base de donnée")

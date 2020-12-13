@@ -16,7 +16,7 @@ body, html, #root, .app, .container {
 .postsContainerBox {
   width: 100%;
   font-size: 20px;
-  height: auto;
+  height: 100%;
   color: #fff;
   display: flex;
   flex-direction: column;

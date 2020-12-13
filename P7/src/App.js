@@ -1,7 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import { observer } from "mobx-react";
-import UserStore from "./stores/UserStore";
 import './App.css';
 import Home from "./scenes/Home";
 import LoginForm from "./scenes/LoginForm";
@@ -20,27 +19,12 @@ class App extends React.Component {
         }
     }
 
-
-    /*
-    render() {
-
-        if (UserStore.loading) {
-            return (
-                <div className="app">
-                    <div className="container">
-                        Loading, please wait..
-                    </div>
-                </div>
-            )
-        }
-    */
-
     render()  {
         return  (
             <BrowserRouter>
                 <Route exact path="/home" component={Home} />
                 <Route path="/upload" component={UploadForm} />
-                <Route path="/login" component={LoginForm} />
+                <Route path="/" component={LoginForm} />
                 <Route path="/comment" component={CommentForm} />
             </BrowserRouter>
         )

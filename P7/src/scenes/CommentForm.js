@@ -3,8 +3,9 @@ import InputField from "../components/InputField";
 import SubmitButton from "../components/SubmitButton";
 import UserStore from "../stores/UserStore";
 import {observer} from "mobx-react";
-import {Col, Container, Image, Row} from "react-bootstrap";
+import {Image} from "react-bootstrap";
 import {Redirect} from "react-router";
+import {Link} from "react-router-dom";
 
 class CommentForm extends React.Component {
 
@@ -67,14 +68,6 @@ class CommentForm extends React.Component {
         })
     }
 
-    resetForm() {
-        this.setState({
-            username: '',
-            password: '',
-            buttonDisabled: false
-        })
-    }
-
     postComment() {
         this.setState({
             buttonDisabled: true
@@ -92,11 +85,14 @@ class CommentForm extends React.Component {
             }).then(function(result){
                    if (result) {
                        this.getComments()
+                       this.setState({
+                           buttonDisabled: false,
+                           comment : ''
+                       })
                        return result.json()
                    }
             }.bind(this))
                 .catch(function(error) {
-                    this.resetForm()
                     alert(error)
                     console.log("Une erreur s'est produite, réessayez plus tard !")
                 }.bind(this))
@@ -113,7 +109,15 @@ class CommentForm extends React.Component {
                 id : id,
                 publication_id : UserStore.selectedPost.id,
             })
-        })
+        }).then(function(result){
+            if (result) {
+                this.getComments()
+                return result.json()
+            }
+        }.bind(this))
+            .catch(function(error) {
+
+            })
     }
 
     getComments() {
@@ -158,13 +162,13 @@ class CommentForm extends React.Component {
 
             }.bind(this))
             .catch(function(error) {
-                console.log(error)
+
             })
     }
 
     render() {
         if (UserStore.isLoggedIn === false) {
-            return <Redirect to={"/login"} />
+            return <Redirect to={"/"} />
         } else {
             return (
                 <div className="postsContainerBox">
@@ -185,6 +189,13 @@ class CommentForm extends React.Component {
                         onClick={ () => this.postComment()}
                     />
 
+                    <Link to="/home">
+                        <button
+                            className='btn-light'>
+                            Back
+                        </button>
+                    </Link>
+
                     <div className="postsContainerBox">
                         {UserStore.listOfComments}
                     </div>
@@ -194,7 +205,5 @@ class CommentForm extends React.Component {
         }
     }
 }
-
-
 
 export default observer(CommentForm);

@@ -75,14 +75,6 @@ class Home extends React.Component {
         })
     }
 
-    resetForm() {
-        this.setState({
-            username: '',
-            password: '',
-            buttonDisabled: false
-        })
-    }
-
     setSelectedResult(result) {
         UserStore.selectedPost = result
     }
@@ -98,14 +90,13 @@ class Home extends React.Component {
                 id : id,
             })
         }).then(function(result){
-            console.log(result)
             if (result) {
                 this.getAllPosts()
                 return result.json()
             }
         }.bind(this))
             .catch(function(error) {
-                console.log(error)
+
             })
     }
 
@@ -149,7 +140,6 @@ class Home extends React.Component {
                                         </Col>
                                     </Row>
 
-
                                 <Link to="/comment">
                                     <SubmitButton
                                         text={"Comments"}
@@ -167,7 +157,6 @@ class Home extends React.Component {
                         </Container>
                     )
                 }
-
             }.bind(this))
             .catch(function(error) {
                 console.log(error)
@@ -175,9 +164,8 @@ class Home extends React.Component {
     }
 
     render() {
-
         if (UserStore.isLoggedIn === false) {
-            return <Redirect to={"/login"} />
+            return <Redirect to={"/"} />
         } else {
 
             return (
