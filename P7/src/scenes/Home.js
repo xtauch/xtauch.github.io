@@ -65,16 +65,6 @@ class Home extends React.Component {
             })
     }
 
-    setInputValue(property, val) {
-        val = val.trim()
-        if (val.length > 12) {
-            return
-        }
-        this.setState({
-            [property]: val
-        })
-    }
-
     setSelectedResult(result) {
         UserStore.selectedPost = result
     }
