@@ -5,6 +5,8 @@ const mysql = require('mysql')
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session')(session)
 const User = require('./controllers/user')
+const Comment = require('./controllers/comments')
+const Post = require('./controllers/posts')
 const bodyParser = require('body-parser')
 const app = express()
 const cors = require('cors')
@@ -47,6 +49,8 @@ app.use(session ({
 }))
 
 new User(app, db)
+new Comment(app, db)
+new Post(app, db)
 
 const normalizePort = val => {
     const port = parseInt(val, 10)
