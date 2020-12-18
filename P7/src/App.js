@@ -12,11 +12,6 @@ class App extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            image: '',
-            titre: '',
-            buttonDisabled: false // To prevent spam
-        }
     }
 
     render()  {

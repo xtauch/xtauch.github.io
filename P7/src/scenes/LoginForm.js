@@ -7,9 +7,7 @@ import {observer} from "mobx-react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Col, Container, Row, Image} from "react-bootstrap";
 
-
 class LoginForm extends React.Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -38,7 +36,6 @@ class LoginForm extends React.Component {
     }
 
     doLogin() {
-
         // Si Username ou Password non renseigné alors on ne fait rien
         if (!this.state.username || !this.state.password) {
             return

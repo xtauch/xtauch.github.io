@@ -12,7 +12,6 @@ class CommentForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: '',
             comment: '',
             deleteButtonDisabled: true,
             buttonDisabled: false // To prevent spam
@@ -38,12 +37,10 @@ class CommentForm extends React.Component {
                     UserStore.isLoggedIn = true
                     UserStore.username = result.username
                     if (UserStore.username === "admin") {
-                        console.log("Logged in (Admin)")
                         this.setState({
                             deleteButtonDisabled: false
                         })
                     } else {
-                        console.log("Logged in (User)")
                         this.setState({
                             deleteButtonDisabled: true
                         })
@@ -58,7 +55,6 @@ class CommentForm extends React.Component {
             .catch(function(error) {
                 UserStore.loading = false
                 UserStore.isLoggedIn = false
-                console.log(error)
             })
     }
 
@@ -79,6 +75,7 @@ class CommentForm extends React.Component {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
+                    username : UserStore.username,
                     publication_id : UserStore.selectedPost.id,
                     comment: this.state.comment
                 })
@@ -94,7 +91,6 @@ class CommentForm extends React.Component {
             }.bind(this))
                 .catch(function(error) {
                     alert(error)
-                    console.log("Une erreur s'est produite, réessayez plus tard !")
                 })
     }
 

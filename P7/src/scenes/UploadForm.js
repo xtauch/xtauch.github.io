@@ -14,8 +14,6 @@ class UploadForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: '',
-            comment: '',
             returnHomePage: false,
             buttonDisabled: false // To prevent spam
         }
@@ -40,11 +38,6 @@ class UploadForm extends React.Component {
                     UserStore.loading = false
                     UserStore.isLoggedIn = true
                     UserStore.username = result.username
-                    if (UserStore.username === "admin") {
-                        console.log("Logged in (Admin)")
-                    } else {
-                        console.log("Logged in (User)")
-                    }
                 }
                 else {
                     UserStore.loading = false
@@ -54,7 +47,6 @@ class UploadForm extends React.Component {
             .catch(function(error) {
                 UserStore.loading = false
                 UserStore.isLoggedIn = false
-                console.log(error)
             })
     }
 
@@ -68,7 +60,6 @@ class UploadForm extends React.Component {
         let reader = new FileReader()
         reader.readAsDataURL(inputFile.target.files[0])
         reader.onloadend = function(){
-            console.log("Image Loaded")
             this.setState({
                 image: reader.result.toString()
             })
@@ -88,7 +79,6 @@ class UploadForm extends React.Component {
                 titre: this.state.titre
             })
         }).then((result) => {
-            console.log(result)
             UserStore.uploading = false
             if (result.status === 200) {
                 toast('Votre Gif a été publié !', {

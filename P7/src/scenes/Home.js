@@ -14,13 +14,10 @@ class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: '',
-            comment: '',
             deleteButtonDisabled: true,
             buttonDisabled: false // To prevent spam
         }
     }
-
 
     componentDidMount() { // When component loaded check if user is logged in
         this.isLoggedIn()
@@ -41,12 +38,10 @@ class Home extends React.Component {
                     UserStore.isLoggedIn = true
                     UserStore.username = result.username
                     if (UserStore.username === "admin") {
-                        console.log("Logged in (Admin)")
                         this.setState({
                             deleteButtonDisabled: false
                         })
                     } else {
-                        console.log("Logged in (User)")
                         this.setState({
                             deleteButtonDisabled: true
                         })
@@ -61,7 +56,6 @@ class Home extends React.Component {
             .catch(function(error) {
                 UserStore.loading = false
                 UserStore.isLoggedIn = false
-                console.log(error)
             })
     }
 
@@ -149,7 +143,6 @@ class Home extends React.Component {
                 }
             }.bind(this))
             .catch(function(error) {
-                console.log(error)
             })
     }
 
