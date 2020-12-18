@@ -2,7 +2,19 @@
 
 In the directory src, you can run: npm start.
 
-After installing the environnement files variables :
+Create a .env && .env.dev file in the backend directory of your project.
+Add environment-specific variables on new lines in the form of NAME=VALUE. For example:
+
+SESSION_KEY = RANDOM_KEY_99999141
+SESSION_SECRET = RANDOM_SECRET_25252451
+
+COOKIE_SECRET = RANDOM_SECRET_774111414
+
+DB_HOST = localhost
+DB_USER = user
+DB_PASSWORD = password
+DB_NAME = p7
+
 In the directory backend, you can run: npm run dev.
 
 ### `MySQL`
