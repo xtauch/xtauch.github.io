@@ -2,7 +2,7 @@
 
 In the directory src, you can run: npm start.
 
-Create a .env and .env.dev file in the backend directory of your project.
+Create a env directory in the backend directory and create a .env and .env.dev file inside.
 Add environment-specific variables on new lines in the form of NAME=VALUE. For example:
 
 SESSION_KEY = RANDOM_KEY_99999141
