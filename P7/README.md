@@ -19,7 +19,7 @@ DB_PASSWORD = password
 
 DB_NAME = p7
 
-In the directory backend, you can run: npm run dev.
+Then in the directory backend, you can run: npm run dev.
 
 ### `MySQL`
 
