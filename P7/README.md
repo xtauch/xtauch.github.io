@@ -2,6 +2,7 @@
 
 In the directory src, you can run: npm start.
 
+After installing the environnement files variables :
 In the directory backend, you can run: npm run dev.
 
 ### `MySQL`
