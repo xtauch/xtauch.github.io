@@ -1,7 +1,8 @@
 ## Available Scripts
 
-In the directory src, you can run: npm start
-In the directory backend, you can run: npm run dev
+In the directory src, you can run: npm start.
+
+In the directory backend, you can run: npm run dev.
 
 ### `MySQL`
 
