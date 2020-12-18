@@ -120,7 +120,7 @@ class Home extends React.Component {
 
                                     <Row className={"my-0"}>
                                         <Col>
-                                            <Image fluid src = {Buffer.from(result.listOfResult[i].image).toString()}/>
+                                            <Image fluid alt="Gif" src = {Buffer.from(result.listOfResult[i].image).toString()}/>
                                         </Col>
                                     </Row>
 

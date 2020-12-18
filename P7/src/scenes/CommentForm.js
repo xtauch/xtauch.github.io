@@ -183,7 +183,7 @@ class CommentForm extends React.Component {
                         </header>
 
                         <div>
-                            <Image className="ImageCenter" fluid src = {Buffer.from(UserStore.selectedPost.image).toString()} />
+                            <Image className="ImageCenter" fluid alt="Gif" src = {Buffer.from(UserStore.selectedPost.image).toString()} />
                             <InputField
                                 type="textarea"
                                 className="commentInput"

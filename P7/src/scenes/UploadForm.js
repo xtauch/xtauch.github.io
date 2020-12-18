@@ -130,6 +130,7 @@ class UploadForm extends React.Component {
 
                 <div>
                     <Image
+                        alt="Gif"
                         className="ImageCenter"
                         src = {this.state.image}
                     />
