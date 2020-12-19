@@ -1,4 +1,5 @@
 const mysql = require('mysql')
+const auth = require('../middleware/auth')
 
 class Posts {
     constructor(app,db) {
@@ -66,7 +67,7 @@ class Posts {
     }
 
     deletePost(app, db) {
-        app.delete('/deletePost', (req, res) => {
+        app.delete('/deletePost', (req, res, next) => {
             let id = req.body.id
             const promise = new Promise ((resolve) => {
                 let sql = "DELETE FROM ?? WHERE ?? = ?";
@@ -84,6 +85,7 @@ class Posts {
                     res.json({
                         success: true
                     })
+                    next()
                     return true
                 })
             })
