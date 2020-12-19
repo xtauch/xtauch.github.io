@@ -76,6 +76,7 @@ class CommentForm extends React.Component {
                 },
                 body: JSON.stringify({
                     username : UserStore.username,
+                    userId : UserStore.userId,
                     publication_id : UserStore.selectedPost.id,
                     comment: this.state.comment
                 })
@@ -103,6 +104,7 @@ class CommentForm extends React.Component {
             },
             body: JSON.stringify({
                 id : id,
+                userId : UserStore.userId,
                 publication_id : UserStore.selectedPost.id,
             })
         }).then(function(result){

@@ -75,6 +75,7 @@ class UploadForm extends React.Component {
             },
             body: JSON.stringify({
                 username: UserStore.username,
+                userId : UserStore.userId,
                 image: this.state.image,
                 titre: this.state.titre
             })
