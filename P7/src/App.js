@@ -17,9 +17,9 @@ class App extends React.Component {
     render()  {
         return  (
             <BrowserRouter>
-                <Route exact path="/home" component={Home} />
-                <Route path="/upload" component={UploadForm} />
                 <Route path="/" component={LoginForm} />
+                <Route path="/home" component={Home} />
+                <Route path="/upload" component={UploadForm} />
                 <Route path="/comment" component={CommentForm} />
             </BrowserRouter>
         )

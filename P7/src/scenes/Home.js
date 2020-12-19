@@ -6,7 +6,7 @@ import UserStore from "../stores/UserStore";
 import { Redirect } from 'react-router';
 import {observer} from "mobx-react";
 import {Link} from "react-router-dom";
-import {Col, Container, Row, Image} from "react-bootstrap";
+import {Col, Container, Row, Image, FormText} from "react-bootstrap";
 import DeleteAccountButton from "../components/DeleteAccountButton";
 
 class Home extends React.Component {
@@ -72,6 +72,7 @@ class Home extends React.Component {
             },
             body: JSON.stringify({
                 id : id,
+                userId : UserStore.userId,
             })
         }).then(function(result){
             if (result) {
@@ -111,12 +112,12 @@ class Home extends React.Component {
                             <div className="postsContainer">
                                 <Row>
                                     <Col className={"h6"}>
-                                        <text>{result.listOfResult[i].username} - </text>
-                                        <text className={"h10"}>{result.listOfResult[i].postdate.slice(0, 10)}</text>
+                                        <FormText>{result.listOfResult[i].username} - </FormText>
+                                        <FormText className={"h10"}>{result.listOfResult[i].postdate.slice(0, 10)}</FormText>
                                     </Col>
                                 </Row>
 
-                                <text>{result.listOfResult[i].titre}</text>
+                                <FormText>{result.listOfResult[i].titre}</FormText>
 
                                     <Row className={"my-0"}>
                                         <Col>
