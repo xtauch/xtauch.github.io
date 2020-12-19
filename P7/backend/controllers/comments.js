@@ -1,4 +1,5 @@
 const mysql = require('mysql')
+const auth = require('../middleware/auth')
 
 class Comments {
     constructor(app,db) {
@@ -8,7 +9,7 @@ class Comments {
     }
 
     postComment(app, db) {
-        app.post('/postComment', (req, res) => {
+        app.post('/postComment', auth(db), (req, res) => {
             let id = 1
             let username = req.body.username
             let comment = req.body.comment
@@ -63,7 +64,7 @@ class Comments {
     }
 
     deleteComment(app, db) {
-        app.delete('/deleteComment', (req, res) => {
+        app.delete('/deleteComment', auth(db), (req, res) => {
             let id = req.body.id
             let publication_id  = req.body.publication_id
             const promise = new Promise ((resolve) => {

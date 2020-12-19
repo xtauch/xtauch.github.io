@@ -10,7 +10,6 @@ class user {
         this.logout(app)
         this.isLoggedIn(app, db)
         this.signup(app, db)
-        this.deleteUser(app, db)
         this.deleteAccount(app, db)
     }
 
@@ -108,15 +107,17 @@ class user {
                             sess = req.session
                             sess.userID = data[0].id
                             sess.username = data[0].username
+
+                            let token = jwt.sign (
+                                { userId: sess.userID },
+                                `${process.env.token}`,
+                                { expiresIn: '24h' }
+                            )
+
                             res.json({
                                 success: true,
                                 username: data[0].username,
-                                userId: data[0].id,
-                                token: jwt.sign(
-                                    { userId: user._id },
-                                    'RANDOM_TOKEN_SECRET',
-                                    { expiresIn: '24h' }
-                                )
+                                userId: data[0].id
                             })
                         })
                     } else {
@@ -151,6 +152,17 @@ class user {
                         sess = req.session
                         sess.userID = data[0].id
                         sess.username = data[0].username
+
+                        let token = jwt.sign (
+                            { userId: sess.userID },
+                            `${process.env.token}`,
+                            { expiresIn: '24h' }
+                        )
+
+                        sql = "UPDATE ?? SET ?? = ? WHERE ?? = ?"
+                        inserts = ['Users', 'token', token, 'username', username]
+                        sql = mysql.format(sql, inserts)
+                        db.query(sql, function (err, data) {})
 
                         res.json({
                             success: true,
@@ -195,23 +207,6 @@ class user {
                     success: false
                 })
             }
-        })
-    }
-
-    deleteUser(app, db) {
-        app.delete('/deleteUser', (req) => {
-            let id = req.body.id
-            const promise = new Promise ((resolve) => {
-                let sql = "DELETE FROM ?? WHERE ?? = ?"
-                let inserts = ['Users', 'id', id]
-                sql = mysql.format(sql, inserts)
-                db.query(sql, function () {
-                    resolve()
-                })
-            })
-            promise.then(() => {
-                console.log("Le compte "+id+" a bien été supprimé.")
-            })
         })
     }
 
