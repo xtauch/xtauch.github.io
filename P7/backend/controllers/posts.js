@@ -1,5 +1,4 @@
 const mysql = require('mysql')
-const auth = require('../middleware/auth')
 
 class Posts {
     constructor(app,db) {
