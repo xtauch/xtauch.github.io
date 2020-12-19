@@ -3,7 +3,7 @@ import InputField from "../components/InputField";
 import SubmitButton from "../components/SubmitButton";
 import UserStore from "../stores/UserStore";
 import {observer} from "mobx-react";
-import {Col, Image, Row} from "react-bootstrap";
+import {Col, FormText, Image, Row} from "react-bootstrap";
 import {Redirect} from "react-router";
 import HomeButton from "../components/HomeButton";
 
@@ -145,11 +145,11 @@ class CommentForm extends React.Component {
                         <div className="postsContainer">
                             <Row>
                                 <Col className={"h6"}>
-                                    <text>{result.listOfComments[i].username} - </text>
-                                    <text className={"h10"}>{result.listOfComments[i].postdate.slice(0, 10)}</text>
+                                    <FormText>{result.listOfComments[i].username} - </FormText>
+                                    <FormText className={"h10"}>{result.listOfComments[i].postdate.slice(0, 10)}</FormText>
                                 </Col>
                             </Row>
-                            <text>{result.listOfComments[i].comment}</text>
+                            <FormText>{result.listOfComments[i].comment}</FormText>
                             <SubmitButton
                                 text={'Delete'}
                                 className={deleteButtonClass}
