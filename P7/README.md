@@ -19,6 +19,8 @@ DB_PASSWORD = password
 
 DB_NAME = p7
 
+TOKEN = RANDOM_TOKEN_21511661
+
 Then in the directory backend, you can run: npm run dev.
 
 ### `MySQL`
