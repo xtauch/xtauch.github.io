@@ -12,7 +12,7 @@ const app = express()
 const cors = require('cors')
 
 // A random key for signing the cookie
-app.use(cookieParser(`${process.env.COOKIE_SECRET}`));
+app.use(cookieParser(`${process.env.COOKIE_SECRET}`))
 app.use(cors())
 app.use(bodyParser.json({limit: '50mb'}))
 
