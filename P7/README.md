@@ -1,4 +1,5 @@
 ## Available Scripts
+Use npm install in the backend directory to install packages.
 
 In the directory src, you can run: npm start.
 
