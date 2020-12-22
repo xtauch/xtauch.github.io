@@ -32,9 +32,9 @@ USE p7;
 CREATE TABLE Users (id int UNSIGNED NOT NULL AUTO_INCREMENT, username varchar(50) NOT NULL UNIQUE, password varchar(250) NOT NULL, dateError date, failedAttempts smallint NOT NULL default 0, token varchar(500), PRIMARY KEY (id, username)) ;
 
 
-CREATE TABLE Gifs (id int UNSIGNED NOT NULL AUTO_INCREMENT, username varchar(50) NOT NULL, titre varchar(200) NOT NULL, image LONGBLOB NOT NULL, postdate date NOT NULL, PRIMARY KEY (id)) ;
+CREATE TABLE Gifs (id int UNSIGNED NOT NULL AUTO_INCREMENT, username varchar(50) NOT NULL, titre varchar(200) NOT NULL, image LONGBLOB NOT NULL, postdate date NOT NULL, PRIMARY KEY (id, username)) ;
 
-CREATE table Comments (id int UNSIGNED NOT NULL AUTO_INCREMENT, publication_id int UNSIGNED NOT NULL, username varchar(50) NOT NULL, postdate date NOT NULL, comment varchar(500) NOT NULL, PRIMARY KEY (id, publication_id)) ;
+CREATE table Comments (id int UNSIGNED NOT NULL AUTO_INCREMENT, publication_id int UNSIGNED NOT NULL, username varchar(50) NOT NULL, postdate date NOT NULL, comment varchar(500) NOT NULL, PRIMARY KEY (id, publication_id, username)) ;
 
 ALTER TABLE Comments ADD CONSTRAINT fk_publication_id FOREIGN KEY (publication_id) REFERENCES Gifs(id);
 
