@@ -18,12 +18,13 @@
     "express-basic-auth": "^1.2.0",
     "express-mysql-session": "^2.1.4",
     "express-session": "^1.17.1",
+    "helmet": "^4.2.0",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "node": "^14.8.0",
     "nodemon": "^2.0.4"
   },
   "devDependencies": {
-    "cookie-parser": "^1.4.5",
-    "jsonwebtoken": "^8.5.1"
+    "cookie-parser": "^1.4.5"
   }
 }
