@@ -1,5 +1,5 @@
 ## Available Scripts
-Use npm install in the backend directory to install packages.
+Use npm install in the backend directory and at the root of the project to install packages.
 
 In the directory src, you can run: npm start to compile the code.
 
