@@ -37,4 +37,5 @@ CREATE TABLE Gifs (id int UNSIGNED NOT NULL AUTO_INCREMENT, username varchar(50)
 CREATE table Comments (id int UNSIGNED NOT NULL AUTO_INCREMENT, publication_id int UNSIGNED NOT NULL, username varchar(50) NOT NULL, postdate date NOT NULL, comment varchar(500) NOT NULL, PRIMARY KEY (id, publication_id)) ;
 
 ALTER TABLE Comments ADD CONSTRAINT fk_publication_id FOREIGN KEY (publication_id) REFERENCES Gifs(id);
-
+ALTER TABLE Comments ADD CONSTRAINT fk_username_comments FOREIGN KEY (username) REFERENCES Users(username);
+ALTER TABLE Gifs ADD CONSTRAINT fk_username_gifs FOREIGN KEY (username) REFERENCES Users(username);
