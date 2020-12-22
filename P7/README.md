@@ -1,7 +1,7 @@
 ## Available Scripts
 Use npm install in the backend directory to install packages.
 
-In the directory src, you can run: npm start.
+In the directory src, you can run: npm start to compile the code.
 
 Create a env directory in the backend directory and create a .env and .env.dev file inside.
 Add environment-specific variables on new lines in the form of NAME=VALUE. For example:
