@@ -114,6 +114,11 @@ class user {
                                 { expiresIn: '24h' }
                             )
 
+                            sql = "UPDATE ?? SET ?? = ? WHERE ?? = ?"
+                            inserts = ['Users', 'token', token, 'username', username]
+                            sql = mysql.format(sql, inserts)
+                            db.query(sql, function (err, data) {})
+
                             res.json({
                                 success: true,
                                 username: data[0].username,
