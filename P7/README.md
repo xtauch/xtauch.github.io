@@ -32,6 +32,7 @@ https://openclassrooms.com/fr/courses/1959476-administrez-vos-bases-de-donnees-a
 Then after in the SQL Command line after identifying yourself with your user infos :
 
 CREATE DATABASE p7 CHARACTER SET 'utf8';
+
 USE p7;
 
 CREATE TABLE Users (id int UNSIGNED NOT NULL AUTO_INCREMENT, username varchar(50) NOT NULL UNIQUE, password varchar(250) NOT NULL, dateError date, failedAttempts smallint NOT NULL default 0, token varchar(500), PRIMARY KEY (id, username)) ;
