@@ -29,6 +29,12 @@ To run this project you first need to install mySQL, you can use the following t
 
 https://openclassrooms.com/fr/courses/1959476-administrez-vos-bases-de-donnees-avec-mysql/1959969-installez-mysql
 
+If you run into the error with the following code : 'ER_NOT_SUPPORTED_AUTH_MODE'
+
+Run the following command in your console with password as the password you want for your root user:
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'
+
 Then after in the SQL Command line after identifying yourself with your user infos :
 
 CREATE DATABASE p7 CHARACTER SET 'utf8';
