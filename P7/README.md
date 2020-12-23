@@ -41,3 +41,8 @@ ALTER TABLE Comments ADD CONSTRAINT fk_publication_id FOREIGN KEY (publication_i
 ALTER TABLE Comments ADD CONSTRAINT fk_username_comments FOREIGN KEY (username) REFERENCES Users(username);
 
 ALTER TABLE Gifs ADD CONSTRAINT fk_username_gifs FOREIGN KEY (username) REFERENCES Users(username);
+
+
+### `Admin`
+
+Create a user named 'admin' to have access to admin functionnalities.
