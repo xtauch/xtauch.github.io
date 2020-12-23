@@ -25,6 +25,11 @@ TOKEN = RANDOM_TOKEN_21511661
 Then in the directory backend, you can run: npm run dev.
 
 ### `MySQL`
+To run this project you first need to install mySQL, you can use the following tutorial if you don't know how to :
+
+https://openclassrooms.com/fr/courses/1959476-administrez-vos-bases-de-donnees-avec-mysql/1959969-installez-mysql
+
+Then after in the SQL Command line after identifying yourself with your user infos :
 
 CREATE DATABASE p7 SET ‘utf8’;
 USE p7;
