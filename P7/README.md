@@ -1,8 +1,12 @@
 ## Available Scripts
+
+### `npm install`
 Use npm install in the backend directory and at the root of the project to install packages.
 
+### `npm start`
 In the directory src, you can run: npm start to compile the code.
 
+### `npm run dev`
 Create a env directory in the backend directory and create a .env and .env.dev file inside.
 Add environment-specific variables on new lines in the form of NAME=VALUE. For example:
 
@@ -24,7 +28,7 @@ TOKEN = RANDOM_TOKEN_21511661
 
 Then in the directory backend, you can run: npm run dev.
 
-### `MySQL`
+## `MySQL`
 To run this project you first need to install mySQL, you can use the following tutorial if you don't know how to :
 
 https://openclassrooms.com/fr/courses/1959476-administrez-vos-bases-de-donnees-avec-mysql/1959969-installez-mysql
