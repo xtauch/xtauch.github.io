@@ -39,10 +39,15 @@ Then after in the SQL Command line after identifying yourself with your user inf
 
 CREATE DATABASE p7 CHARACTER SET 'utf8';
 
+If you don't want to use your root as user for this project then create a new one and don't forget to use it in your env files : 
+
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+
+GRANT ALL PRIVILEGES ON p7 TO 'xavier'@'localhost';
+
 USE p7;
 
 CREATE TABLE Users (id int UNSIGNED NOT NULL AUTO_INCREMENT, username varchar(50) NOT NULL UNIQUE, password varchar(250) NOT NULL, dateError date, failedAttempts smallint NOT NULL default 0, token varchar(500), PRIMARY KEY (id, username)) ;
-
 
 CREATE TABLE Gifs (id int UNSIGNED NOT NULL AUTO_INCREMENT, username varchar(50) NOT NULL, titre varchar(200) NOT NULL, image LONGBLOB NOT NULL, postdate date NOT NULL, PRIMARY KEY (id, username)) ;
 
